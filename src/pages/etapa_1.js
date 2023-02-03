@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import "../styles/etapa_1.css";
-import Navbar from "./Navbar/index";
+import Navbar from "../components/Navbar/index";
 
 export const Etapa1 = () => {
   return (
