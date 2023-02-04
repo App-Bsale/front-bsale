@@ -1,0 +1,44 @@
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(230, 232, 235, 0.31);
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.container{
+    width: 100%;
+    max-width: 271px;
+    gap: 14px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.logo{
+    width: 120px;
+    height: 36px;
+}
+.text{
+    width: 137px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 44.8px;
+}
+
+.button{
+    width: 99px;
+    height: 42px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    background: #FF5B00;
+}
