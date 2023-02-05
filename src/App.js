@@ -4,6 +4,7 @@ import "./App.css";
 import { MultipleChoice } from "./pages/multipleChoice";
 import LoginAdmin from "./pages/admin/loginAdmin";
 import AdminDashboard from "./pages/admin";
+import FormPhaseOne from "./components/forms/formPhase1";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
         <Route path="/" element={<MultipleChoice />} />
         <Route path="/login" element={<MultipleChoice />} />
         <Route path="/loginAdmin" element={<LoginAdmin />} />
+
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
         {/* <div className="App">
         </div> */}
       </Routes>
