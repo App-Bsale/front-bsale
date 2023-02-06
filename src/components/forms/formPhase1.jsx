@@ -19,21 +19,6 @@ const tailLayout = {
 const FormPhaseOne = () => {
   const [form] = Form.useForm();
 
-  const onGenderChange = (value) => {
-    switch (value) {
-      case "male":
-        form.setFieldsValue({ note: "Hi, man!" });
-        break;
-      case "female":
-        form.setFieldsValue({ note: "Hi, lady!" });
-        break;
-      case "other":
-        form.setFieldsValue({ note: "Hi there!" });
-        break;
-      default:
-    }
-  };
-
   const onSubmit = (values) => {
     try {
       console.log({ values });
@@ -64,6 +49,7 @@ const FormPhaseOne = () => {
       notifyError(dataRes.message);
     } else {
       notifySuccess(dataRes.message);
+      onReset();
     }
   };
 
