@@ -2,14 +2,20 @@ import { Button, Form, Input } from "antd";
 import LogoBsale from "../../assets/image/logo-bsale.svg";
 import "./login.css";
 const Login = () => {
-  const [form] = Form.useForm();
+    const [form] = Form.useForm();
 
-  console.log(form);
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      
+
+    };
+
   return (
     <div className="container">
       <img src={LogoBsale} alt="bsale" className="logo-login" />
       <h1 className="title-login">Desafíate!</h1>
-      <Form form={form} layout="vertical">
+      <Form form={form}
+        name="control-hooks" onFinish={handleSubmit} layout="vertical">
         <Form.Item label="Email">
           <Input className="input email" />
         </Form.Item>
@@ -17,7 +23,7 @@ const Login = () => {
           <Input className="input password" />
         </Form.Item>
         <Form.Item>
-          <Button className="button" type="primary">
+          <Button className="button" type="primary" htmlType="submit">
             Primary Button
           </Button>
         </Form.Item>
