@@ -2,7 +2,7 @@ import { Button } from "antd";
 import Navbar from "../components/Navbar";
 import "../styles/multipleChoice.css";
 import Example1 from "../assets/image/example1.png";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const MultipleChoice = () => {
   return (
