@@ -1,0 +1,4 @@
+.headPostulate {
+  display: flex;
+  flex-direction: column;
+}
