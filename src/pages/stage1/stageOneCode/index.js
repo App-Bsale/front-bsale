@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout/Layout'
+import Layout from '../../../components/Layout/Layout'
 import React from 'react'
 import { Button } from 'antd'
 import './style.css'
