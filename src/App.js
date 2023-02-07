@@ -12,6 +12,7 @@ import PostulatesPhase1 from "./pages/admin/postulatesPhase1";
 import Description from "./pages/description";
 import { SessionProvider } from "./context/SessionContext";
 import AssignedChallenge from './pages/assignedChallenge'
+import StageOneCode from './pages/stageOneCode'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
+          <Route path="/StageOneCode" element={<StageOneCode />} />
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route path="/description-test" element={<Description />} />
           <Route path="/admin" element={<AdminDashboard />} />
