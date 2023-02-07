@@ -11,6 +11,7 @@ import AllQuestions from "./pages/admin/questions";
 import PostulatesPhase1 from "./pages/admin/postulatesPhase1";
 import Description from "./pages/description";
 import { SessionProvider } from "./context/SessionContext";
+import AssignedChallenge from './pages/assignedChallenge'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route path="/description-test" element={<Description />} />
           <Route path="/admin" element={<AdminDashboard />} />
