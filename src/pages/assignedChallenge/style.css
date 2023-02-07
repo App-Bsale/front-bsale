@@ -1,0 +1,28 @@
+.container-challenge{
+    margin: auto;
+    max-width: 868px;
+    width: 100%;
+}
+
+.header-challenge {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-challenge > h4 {
+    margin: 0px;
+}
+
+.ant-collapse-header {
+    align-items: center;
+}
+
+.ant-collapse-expand-icon {
+    margin-top: 5px;
+}
+
+.button-challenge{
+    background-color: #FF5B00;
+}
