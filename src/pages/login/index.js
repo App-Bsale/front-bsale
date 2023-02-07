@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <img src={LogoBsale} alt="bsale" className="logo-login" />
       <h1 className="title-login">Desafíate!</h1>
       <Form
