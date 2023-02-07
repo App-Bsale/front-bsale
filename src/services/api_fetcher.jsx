@@ -6,9 +6,6 @@ export const apiFetch = async function (
   headers,
   body
 ) {
-
-  console.log(endpoint)
-
   const response = await fetch(`${BASE_URL}${endpoint}`, {
     method,
     headers,
@@ -22,5 +19,5 @@ export const apiFetch = async function (
 
   if (response.status === 204) return {};
   const dataRes = await response.json();
-  console.log(dataRes)
+  console.log(dataRes);
 };
