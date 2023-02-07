@@ -13,15 +13,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(ctx.session.token);
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      ctx.signIn(token);
+    }
+  }, [ctx]);
+
+  useEffect(() => {
+    console.log(ctx.session.token)
     if (ctx.session.token) {
-      navigate("/dashboard");
+      navigate("/description-test");
     }
   }, [ctx.session.token, navigate]);
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     try {
-      const user = LoginUsersFetcher.login(values);
+      const user = await LoginUsersFetcher.login(values);
       if (user.token) {
         ctx.signIn(user.token);
         sessionStorage.setItem("token", user.token);
