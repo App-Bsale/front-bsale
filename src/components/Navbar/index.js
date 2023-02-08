@@ -7,7 +7,7 @@ return(
     <>
         <nav className='navbar'>
             <div className='wrapper'>
-            <div className='container'>
+            <div className='container-navbar'>
                 <img className='logo' src={LogoBsale} alt="logo-navbar"/>
                 <div className='text'>Desafíate!</div>    
             </div>

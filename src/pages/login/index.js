@@ -1,20 +1,45 @@
 import { Button, Form, Input } from "antd";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import LogoBsale from "../../assets/image/logo-bsale.svg";
+import { SessionContext } from "../../context/SessionContext";
 import { LoginUsersFetcher } from "../../services/login_users_fetcher";
 import "./login.css";
+
 const Login = () => {
   const [form] = Form.useForm();
 
-  const onSubmit =  (values) => {
+  const ctx = useContext(SessionContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      ctx.signIn(token);
+    }
+  }, [ctx]);
+
+  useEffect(() => {
+    console.log(ctx.session.token)
+    if (ctx.session.token) {
+      navigate("/description-test");
+    }
+  }, [ctx.session.token, navigate]);
+
+  const onSubmit = async (values) => {
     try {
-      LoginUsersFetcher.login(values);
+      const user = await LoginUsersFetcher.login(values);
+      if (user.token) {
+        ctx.signIn(user.token);
+        sessionStorage.setItem("token", user.token);
+      }
     } catch (e) {
       console.log(e.message);
     }
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <img src={LogoBsale} alt="bsale" className="logo-login" />
       <h1 className="title-login">Desafíate!</h1>
       <Form
