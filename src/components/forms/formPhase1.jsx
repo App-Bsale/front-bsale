@@ -45,6 +45,7 @@ const FormPhaseOne = () => {
     );
     const status = await res.status;
     const dataRes = await res.json();
+    console.log(dataRes);
     if (status === 400) {
       notifyError(dataRes.message);
     } else {
