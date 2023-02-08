@@ -22,9 +22,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
-          <Route path="stage1/StageOneCode" element={<StageOneCode />} />
+          <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
           <Route path="/loginAdmin" element={<LoginAdmin />} />
-          <Route path="/description-test" element={<Description />} />
+          {/* <Route path="/description-test" element={<Description />} /> */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
           <Route path="/admin/phase1/questions" element={<AllQuestions />} />
