@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { Button, Modal, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
+
+
 import "../../styles/postulatesPhase1.css";
 
 const PostulatesPhase1 = () => {
