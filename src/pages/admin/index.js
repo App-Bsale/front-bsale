@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Button, Col, Layout, Modal, Row, Select } from "antd";
 import "./style.css";
 import { Link, NavLink } from "react-router-dom";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import FormQuestionBasic from "../../components/forms/FormQuestionBasic";
+import { getApi } from "../../services";
+import { PhaseContext } from "../../hooks/PhaseContext";
 
 const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
   const [valueSelectType, setValueSelectType] = useState("");
+  const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
+  console.log(phaseOneGlobal);
+
+  useEffect(() => {
+    getApi("api/phase1").then((res) => {
+      console.log(res);
+      setPhaseOneGlobal(res[0]);
+    });
+  }, []);
 
   const showModal = () => {
     setIsModalOpenQuestion(true);
