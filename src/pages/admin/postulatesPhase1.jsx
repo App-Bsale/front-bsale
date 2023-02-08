@@ -1,7 +1,7 @@
 import React from "react";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../../styles/postulatesPhase1.css";
 
 const PostulatesPhase1 = () => {

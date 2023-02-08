@@ -1,14 +1,7 @@
-<<<<<<< HEAD:src/pages/admin/index.js
-import { Button, Col, Layout, Row } from "antd";
-import React from "react";
-import "./style.css";
-// import { NavLink } from "react-router-dom";
-=======
 import React, { useState } from "react";
 import { Button, Col, Layout, Modal, Row, Select } from "antd";
 import "./style.css";
 import { Link, NavLink } from "react-router-dom";
->>>>>>> 7c2ef9e20dad9dfecc4cb065fb09061cb0938123:src/pages/admin/index.jsx
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import FormQuestionBasic from "../../components/forms/FormQuestionBasic";
 
