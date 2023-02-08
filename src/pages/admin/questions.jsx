@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LayoutAdmin from "../../components/Layout/adminLayout";
+import "../../styles/allQuestions.css"
 
 const AllQuestions = () => {
 
@@ -18,19 +19,26 @@ const AllQuestions = () => {
 
   return (
     <LayoutAdmin>
-      <h1>AllQuestions</h1>
-      { question.map((question) =>(
-          <div key={question._id}>
-            <p>{question.description}</p>
-            <img src={question.image} alt="imagen" />
-            {question.alternatives.map((alternative) =>(
-              <p key={alternative._id}>{alternative.option}</p>
-            ))}
-            <p>--Respuesta</p>
-            <p>{question.answer}</p>
-          </div>
-      ))}
-      
+      <div>
+        <h1>AllQuestions</h1>
+        <div className="container_questions">
+            { question.map((question) =>(
+              <div key={question._id} className="card_question">
+                <h3>{question.description}</h3>
+                <img src={question.image} alt="imagen"/>
+                {question.alternatives.map((alternative) =>(
+                  <ul>
+                    <li key={alternative._id}>{alternative.option}</li>
+                  </ul>
+                ))}
+                <h4>Respuesta</h4>
+                <ul>
+                  <li>{question.answer}</li>
+                </ul>
+              </div>
+            ))}          
+        </div>
+      </div>
     </LayoutAdmin>
   );
 };

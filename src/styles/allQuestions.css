@@ -1,0 +1,35 @@
+.container_questions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px;
+  border: 1px solid rgb(20, 19, 19);
+}
+
+.card_question {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(65, 61, 61);
+  border-radius: 32px;
+}
+
+.card_question h3 {
+  padding: 16px;
+}
+
+.card_question img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 50px;
+  margin: 16px;
+}
+
+.card_question ul {
+  margin-right: 32px;
+}
+
+

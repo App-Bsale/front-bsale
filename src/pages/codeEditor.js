@@ -12,7 +12,7 @@ export const CodeEditor = () => {
           className="editor"
           theme="vs-dark"
           defaultLanguage="javascript"
-          value="Ingresa tu codigo aquí"
+          value="<p> Hola </p>"
           onChange={(e) => setCode(e)}
         />
       </div>
