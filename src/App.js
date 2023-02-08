@@ -13,6 +13,7 @@ import Description from "./pages/description";
 import { SessionProvider } from "./context/SessionContext";
 import AssignedChallenge from './pages/assignedChallenge'
 import StageOneCode from './pages/stage1/stageOneCode'
+import StageOne from "./pages/stage1";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="stage1/StageOneCode" element={<StageOneCode />} />
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route path="/description-test" element={<Description />} />
+          <Route path="/state-one" element={<StageOne />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
           <Route path="/admin/phase1/questions" element={<AllQuestions />} />

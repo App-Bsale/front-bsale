@@ -3,8 +3,12 @@ import { Button } from "antd";
 import ButtonArrow from "../../assets/image/bottom_arrow.svg";
 import "./style.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Description = () => {
+
+  const navigate = useNavigate();
+
   const [dropdown, setDropdown] = useState("dropdown-off");
   const [dropdownContent, setDropdownContent] = useState(
     "dropdown-content-off"
@@ -20,6 +24,11 @@ const Description = () => {
     }
   };
 
+  const onSubmit = () => {
+    console.log("stage-one")
+    navigate("/state-one")
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -31,7 +40,8 @@ const Description = () => {
               Desarrollador Web Junior
             </div>
             <div>
-              <Button className="button description__button" type="primary">
+              <Button onClick={onSubmit}
+ className="button description__button" type="primary">
                 Iniciar
               </Button>
               <img
