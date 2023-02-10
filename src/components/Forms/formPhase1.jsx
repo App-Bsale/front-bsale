@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import LayoutAdmin from "../Layout/adminLayout";
 import { Toaster } from "react-hot-toast";
-import { notifyError, notifySuccess } from "../alerts";
+import { notifyError, notifySuccess } from "../Alerts";
 
 const { TextArea } = Input;
 

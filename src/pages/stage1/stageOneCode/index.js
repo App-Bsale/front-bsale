@@ -2,7 +2,7 @@ import Layout from "../../../components/Layout/Layout";
 import React from "react";
 import { Button } from "antd";
 import "./style.css";
-import { CodeEditor } from "../../codeEditor";
+import { CodeEditor } from "../../../components/CodeEditor/codeEditor";
 
 const StageOneCode = () => {
   return (

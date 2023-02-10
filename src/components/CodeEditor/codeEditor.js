@@ -1,4 +1,4 @@
-import "../styles/codeEditor.css";
+import "../../styles/codeEditor.css";
 import Editor from "@monaco-editor/react";
 import { useState } from "react";
 

@@ -3,9 +3,10 @@ import { Button, Col, Layout, Modal, Row, Select } from "antd";
 import "./style.css";
 import { Link, NavLink } from "react-router-dom";
 import LayoutAdmin from "../../components/Layout/adminLayout";
-import FormQuestionBasic from "../../components/forms/FormQuestionBasic";
+import FormQuestionBasic from "../../components/Forms/FormQuestionBasic";
 import { getApi } from "../../services";
 import { PhaseContext } from "../../hooks/PhaseContext";
+
 
 const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
