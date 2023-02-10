@@ -20,7 +20,7 @@ const Login = () => {
   }, [ctx]);
 
   useEffect(() => {
-    console.log(ctx.session.token)
+    console.log(ctx.session.token);
     if (ctx.session.token) {
       navigate("/description-test");
     }
@@ -66,7 +66,7 @@ const Login = () => {
         </Form.Item>
         <Form.Item>
           <Button className="button" type="primary" htmlType="submit">
-            Primary Button
+            Login
           </Button>
         </Form.Item>
       </Form>
