@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content:space-between ;
+    margin: 19px auto;
 }
 
 .container-navbar{
@@ -35,10 +36,6 @@
 }
 
 .button{
-    width: 99px;
-    height: 42px;
-    font-weight: 600;
     font-size: 18px;
     line-height: 18px;
-    background: #FF5B00;
 }
