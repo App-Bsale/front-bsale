@@ -19,10 +19,9 @@ const AllQuestions = () => {
 
   return (
     <LayoutAdmin>
-      <div>
         <h1>AllQuestions</h1>
         <div className="container_questions">
-            { question.map((question) =>(
+            { question ? question.map((question) =>(
               <div key={question._id} className="card_question">
                 <h3>{question.description}</h3>
                 <img src={question.image} alt="imagen"/>
@@ -36,9 +35,8 @@ const AllQuestions = () => {
                   <li>{question.answer}</li>
                 </ul>
               </div>
-            ))}          
-        </div>
-      </div>
+            )): "Need add Questions"}
+        </div>     
     </LayoutAdmin>
   );
 };
