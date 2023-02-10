@@ -4,8 +4,10 @@ import { Button, Modal, Form, Input, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import { getApi, putApi } from "../../services/fetchApi";
 import { PhaseContext } from "../../hooks//PhaseContext";
+import { Toaster } from "react-hot-toast";
 
 import "../../styles/postulatesPhase1.css";
+import { notifyError, notifySuccess } from "../../components/Alerts";
 
 const PostulatesPhase1 = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +19,7 @@ const PostulatesPhase1 = () => {
   const onSubmit = (values) => {
     try {
       console.log({ values });
-      getApi(`api/auth?email=${values.email}`).then((res) => {
+      getApi(`api/auth/searchUser/${values.email}`).then((res) => {
         setUsersData([{ ...res }]);
         handleCancel();
       });
@@ -58,7 +60,11 @@ const PostulatesPhase1 = () => {
       idPhase: phaseOneGlobal.id,
       email: email,
     }).then((res) => {
-      console.log(res);
+      if (res.message === "El usuario ya existe en esta fase") {
+        notifyError(res.message);
+      } else {
+        notifySuccess(res.message);
+      }
     });
   };
 
@@ -101,6 +107,8 @@ const PostulatesPhase1 = () => {
       )}
 
       <LayoutAdmin>
+        <Toaster />
+
         <div className="postulateContainer">
           <div className="headPostulate">
             <h1>Lista de Postulantes</h1>

@@ -22,7 +22,7 @@ const Login = () => {
   useEffect(() => {
     console.log(ctx.session.token);
     if (ctx.session.token) {
-      navigate("/description-test");
+      navigate("/assignedChallenge");
     }
   }, [ctx.session.token, navigate]);
 
