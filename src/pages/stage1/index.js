@@ -4,10 +4,12 @@ import Navbar from "../../components/Navbar";
 import PhaseOneFetcher from "../../services/phases_fetcher";
 import { getApi, postApi } from "../../services/index";
 import "../../styles/etapa_1.css";
+import { useNavigate } from "react-router-dom";
 
 const StageOne = () => {
   const [stageOne, setStageOne] = useState([]);
 
+  const navigate = useNavigate();
   useEffect(() => {
     getApi("api/phase1").then((res) => setStageOne(res[0]));
   }, []);
@@ -25,7 +27,11 @@ const StageOne = () => {
 
         <p>{stageOne.resume}</p>
 
-        <Button className="button_primary" type="primary">
+        <Button
+          className="button_primary"
+          type="primary"
+          onClick={() => navigate("/stage1Challenge")}
+        >
           Iniciar
         </Button>
       </div>

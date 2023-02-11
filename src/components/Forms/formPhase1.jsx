@@ -65,13 +65,14 @@ const FormPhaseOne = () => {
   return (
     <LayoutAdmin>
       <Toaster />
+
       <Form
         {...layout}
         form={form}
         name="control-hooks"
         onFinish={onSubmit}
         style={{
-          width: "50%",
+          maxWidth: 600,
           marginBlock: "2rem",
         }}
       >
