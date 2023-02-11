@@ -14,6 +14,8 @@ import AssignedChallenge from "./pages/assignedChallenge";
 import StageOneCode from "./pages/stage1/stageOneCode";
 import StageOneSolutions from "./pages/stage1/stageOneSolutions";
 import Login from "./pages/login";
+import ContinuousImprovement from "./pages/stage3";
+import Evaluation from "./pages/stage3/stageEvaluation";
 
 function App() {
   return (
@@ -36,6 +38,11 @@ function App() {
             path="/admin/phase1/postulates"
             element={<PostulatesPhase1 />}
           />
+          <Route
+            path="/state-tree/continuousImprovement"
+            element={<ContinuousImprovement />}
+          />
+          <Route path="/state-tree/evaluation" element={<Evaluation />} />
         </Routes>
       </BrowserRouter>
     </SessionProvider>
