@@ -17,6 +17,8 @@ import Login from "./pages/login";
 import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 
+import StagePage from "./pages/stage1/stage";
+
 function App() {
   return (
     <SessionProvider>

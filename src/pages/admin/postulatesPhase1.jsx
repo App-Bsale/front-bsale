@@ -1,13 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LayoutAdmin from "../../components/Layout/adminLayout";
-import { Button, Modal, Checkbox, Form, Input } from "antd";
+import { Button, Modal, Form, Input, Row, Col } from "antd";
 import { Link } from "react-router-dom";
-
+import { getApi, putApi } from "../../services/fetchApi";
+import { PhaseContext } from "../../hooks//PhaseContext";
+import { Toaster } from "react-hot-toast";
 
 import "../../styles/postulatesPhase1.css";
+import { notifyError, notifySuccess } from "../../components/Alerts";
 
 const PostulatesPhase1 = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [usersData, setUsersData] = useState([]);
+  const [userSearch, setUserSearch] = useState(null);
+  const [form] = Form.useForm();
+  const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
+
+  const onSubmit = (values) => {
+    try {
+      console.log({ values });
+      getApi(`api/auth/searchUser/${values.email}`).then((res) => {
+        setUsersData([{ ...res }]);
+        handleCancel();
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  useEffect(() => {
+    getApi("api/auth").then((res) => {
+      console.log(res);
+      setUsersData(res);
+    });
+  }, []);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -29,6 +55,19 @@ const PostulatesPhase1 = () => {
     console.log("Failed:", errorInfo);
   };
 
+  const addUserToPhase = (email) => {
+    putApi("api/phase1/addUser", {
+      idPhase: phaseOneGlobal.id,
+      email: email,
+    }).then((res) => {
+      if (res.message === "El usuario ya existe en esta fase") {
+        notifyError(res.message);
+      } else {
+        notifySuccess(res.message);
+      }
+    });
+  };
+
   return (
     <>
       {isModalOpen && (
@@ -39,12 +78,13 @@ const PostulatesPhase1 = () => {
           onCancel={handleCancel}
         >
           <Form
+            form={form}
             name="email"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
             style={{ maxWidth: 600 }}
             initialValues={{ remember: true }}
-            onFinish={onFinish}
+            onFinish={onSubmit}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
@@ -67,6 +107,8 @@ const PostulatesPhase1 = () => {
       )}
 
       <LayoutAdmin>
+        <Toaster />
+
         <div className="postulateContainer">
           <div className="headPostulate">
             <h1>Lista de Postulantes</h1>
@@ -74,6 +116,23 @@ const PostulatesPhase1 = () => {
               Agregar un nuevo usuario
             </Button>
           </div>
+          {usersData.map((user) => {
+            return (
+              <Row className="cardPhase">
+                <Col>
+                  <h3>{user.email}</h3>
+                </Col>
+                <Col className="buttonActions">
+                  <Button
+                    type="primary"
+                    onClick={() => addUserToPhase(user.email)}
+                  >
+                    Agregar a la Fase 1
+                  </Button>
+                </Col>
+              </Row>
+            );
+          })}
         </div>
       </LayoutAdmin>
     </>
