@@ -9,7 +9,6 @@ const FormularioEvaluation = () => {
   const [hoverValue, setHoverValue] = useState(undefined);
 
   const handleClick = (value) => {
-    console.log(value);
     setCurrentValue(value);
   };
 
@@ -33,7 +32,13 @@ const FormularioEvaluation = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { label_1, label_2 } = data;
+    const newObjet = {
+      label_1: label_1,
+      label_2: label_2,
+      stars: currentValue,
+    };
+    console.log(newObjet);
   };
 
   return (
