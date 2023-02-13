@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Form, Input, Row } from "antd";
 import { Toaster } from "react-hot-toast";
-import { notifyError, notifySuccess } from "../alerts";
+import { notifyError, notifySuccess } from "../Alerts";
 import { getApi, postApi } from "../../services";
 import { PhaseContext } from "../../hooks/PhaseContext";
 
