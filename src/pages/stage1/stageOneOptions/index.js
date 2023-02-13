@@ -1,11 +1,10 @@
 import { Button } from "antd";
-import "../styles/multipleChoice.css";
-import Example1 from "../assets/image/example1.png";
-import LayoutAdmin from "../../../components/Layout/adminLayout";
+import Example1 from "../../../assets/image/example1.png";
+import Layout from "../../../components/Layout/Layout";
 
-export const MultipleChoice = () => {
+export const StageOneOptions = () => {
   return (
-    <LayoutAdmin>
+    <Layout>
       <div className="container_multipleChoice">
         <div>
           <h2>Desarrollador Web Junior</h2>
@@ -26,6 +25,6 @@ export const MultipleChoice = () => {
           Iniciar
         </Button>
       </div>
-    </LayoutAdmin>
+    </Layout>
   );
 };
