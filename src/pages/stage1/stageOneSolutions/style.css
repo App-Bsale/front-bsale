@@ -1,0 +1,50 @@
+.container-stageOneSolutions {
+    height: 1295px;
+    margin: auto;
+    max-width: 868px;
+    width: 100%;
+}
+
+.solution {
+    height: 893px;
+}
+
+.solution-text {
+    height: 112px;
+    margin-bottom: 32px;
+}
+
+.button-test {
+    display: flex;
+    margin: auto;
+    margin-top: 49px;
+}
+
+.description-test {
+    height: 214px;
+    display: flex;
+    flex-direction: column;
+}
+
+.description-test>div {
+    height: 28px;
+    margin: 0px 19px 16px 19px;
+    display: flex;
+    gap: 10px;
+    line-height: 22px;
+    align-items: center;
+}
+
+.description-test>div:nth-child(1) {
+    margin-top: 27px;
+}
+
+.description-test>div:nth-child(4) {
+    margin-bottom: 27px;
+}
+
+.button-next {
+    display: flex;
+    margin: auto;
+    background: #FF5B00;
+}
