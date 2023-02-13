@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import LayoutAdmin from "../Layout/adminLayout";
 import { Toaster } from "react-hot-toast";
-import { notifyError, notifySuccess } from "../alerts";
+import { notifyError, notifySuccess } from "../Alerts";
 
 const { TextArea } = Input;
 
@@ -45,6 +45,7 @@ const FormPhaseOne = () => {
     );
     const status = await res.status;
     const dataRes = await res.json();
+    console.log(dataRes);
     if (status === 400) {
       notifyError(dataRes.message);
     } else {
@@ -64,13 +65,14 @@ const FormPhaseOne = () => {
   return (
     <LayoutAdmin>
       <Toaster />
+
       <Form
         {...layout}
         form={form}
         name="control-hooks"
         onFinish={onSubmit}
         style={{
-          width: "50%",
+          maxWidth: 600,
           marginBlock: "2rem",
         }}
       >

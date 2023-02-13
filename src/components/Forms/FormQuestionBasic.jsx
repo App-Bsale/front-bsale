@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { Button, Form, Input, Row } from "antd";
 import { Toaster } from "react-hot-toast";
-import { notifyError, notifySuccess } from "../alerts";
+import { notifyError, notifySuccess } from "../Alerts";
 
 import axios from "axios";
 import { getApi, postApi } from "../../services";

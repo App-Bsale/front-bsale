@@ -1,4 +1,5 @@
-import { BASE_URL } from "../constants.js";
+// import { createGlobalStyle } from "styled-components";
+import { BASE_URL } from "../constants";
 
 export const apiFetch = async function (
   endpoint,
@@ -6,11 +7,13 @@ export const apiFetch = async function (
   headers,
   body
 ) {
+
   const response = await fetch(`${BASE_URL}${endpoint}`, {
     method,
     headers,
     body: JSON.stringify(body),
   });
+
 
   if (!response.ok) {
     const error = await response.json();
@@ -18,5 +21,6 @@ export const apiFetch = async function (
   }
 
   if (response.status === 204) return {};
+  
   return await response.json();
 };
