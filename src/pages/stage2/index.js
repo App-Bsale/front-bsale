@@ -1,17 +1,16 @@
 import { Button } from 'antd'
 import React from 'react'
-import Layout from '../components/Layout/Layout'
+import Layout from '../../components/Layout/Layout'
+import './style.css'
 
 const Requirements = () => {
     return (
         <Layout>
-            <div>
+            <div className='container-stage2'>
                 <h4>Desarrollador Web</h4>
-                <div>
+                <div className='requirement'>
                     <h4>Requerimientos</h4>
-                    <div style={{ background: 'black', width: '576px', height: '324px', margin: 'auto', marginBottom: '32px' }}>
-                    </div>
-                    <p>
+                    <p className='requirement-text'>
                         Eget mollis mauris vivamus eget cursus tincidunt mauris nisi.
                         Adipiscing sit dolor blandit et mattis. Sagittis non ultrices
                         viverra non ac tempor. Posuere felis at ultricies purus libero diam.
@@ -25,7 +24,6 @@ const Requirements = () => {
                         eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                         sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    {/* <img src={example} alt='tabla normalizada' style={{ display: 'flex', margin: 'auto' }} /> */}
                     <h4>Criterio de evaluación</h4>
                     <p>
                         Eget mollis mauris vivamus eget cursus tincidunt mauris nisi.
@@ -33,6 +31,33 @@ const Requirements = () => {
                         viverra non ac tempor. Posuere felis at ultricies purus libero diam.
                         Non non urna tellus vehicula auctor ut massa malesuada. Nulla fermentum
                     </p>
+                    <table className='table'>
+                        <tr style={{background:'rgba(0, 0, 0, 0.06)'}}>
+                            <th className='table-cell'>Categoria</th>
+                            <th className='table-cell'>Criterio</th>
+                            <th className='table-cell'>Ponderación</th>
+                        </tr>
+                        <tr>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                        </tr>
+                        <tr>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                        </tr>
+                        <tr>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                        </tr>
+                        <tr>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                            <td className='table-cell'>Eget mollis</td>
+                        </tr>
+                    </table>
                     <h4>Tests</h4>
                     <p>
                         Eget mollis mauris vivamus eget cursus tincidunt mauris nisi.
@@ -40,7 +65,43 @@ const Requirements = () => {
                         viverra non ac tempor. Posuere felis at ultricies purus libero diam.
                         Non non urna tellus vehicula auctor ut massa malesuada. Nulla fermentum
                     </p>
-                    <Button type="primary" >Iniciar tests</Button>
+                    <div className='project-url'>
+                        <input placeholder='project-url'/>
+                        <Button className='button-test-stage2' type="primary" >Iniciar tests</Button>
+                    </div>
+                    <div className="stage2-test">
+                        <div>
+                            <div className='dot'/>
+                            Descripción de test
+                        </div>
+                        <div>
+                            <div className='dot'/>
+                            Descripción de test
+                        </div>
+                        <div>
+                            <div className='dot'/>
+                            Descripción de test
+                        </div>
+                        <div>
+                            <div className='dot'/>
+                            Descripción de test
+                        </div>
+                    </div>
+                    <h4>Envío de proyecto</h4>
+                    <p>
+                        Eget mollis mauris vivamus eget cursus tincidunt
+                        mauris nisi. Adipiscing sit dolor blandit et mattis.
+                    </p>
+                    <p>
+                        · Brindar acceso a Bsale-IO a tu repositorio privado de GitHub
+                        <br/>
+                        · Registra la URL de tu proyecto en el siguiente campo
+                    </p>
+                    <div className='github-repo-url'>
+                        <input placeholder='github-repo-url' />
+                        <Button className='button-send-stage2' type="primary">Enviar</Button>
+                    </div>
+                    <Button className='button-next-stage2' type="primary">Siguiente</Button>
                 </div>
             </div>
         </Layout>
