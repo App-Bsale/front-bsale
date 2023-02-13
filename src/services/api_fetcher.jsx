@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { BASE_URL } from "../constants.js";
+// import { createGlobalStyle } from "styled-components";
+import { BASE_URL } from "../constants";
 
 export const apiFetch = async function (
   endpoint,

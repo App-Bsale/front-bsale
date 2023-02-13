@@ -62,7 +62,7 @@ const Login = () => {
           label="Password"
           name="password"
         >
-          <Input className="input password" />
+          <Input className="input password" type="password" />
         </Form.Item>
         <Form.Item>
           <Button className="button" type="primary" htmlType="submit">
