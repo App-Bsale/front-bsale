@@ -15,6 +15,7 @@ import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import ProtectedRoutes from "./components/router/ProtectedRoutes";
+import Requirements from './pages/stage2'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               path="/admin/phase1/postulates"
               element={<PostulatesPhase1 />}
             />
+            <Route path="/stage2/requirements" element={<Requirements />} />
             <Route
               path="/state-tree/continuousImprovement"
               element={<ContinuousImprovement />}
