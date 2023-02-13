@@ -6,6 +6,7 @@ import LayoutAdmin from "../../components/Layout/adminLayout";
 import FormQuestionBasic from "../../components/forms/FormQuestionBasic";
 import { getApi } from "../../services";
 import { PhaseContext } from "../../hooks/PhaseContext";
+import FormQuestionCode from "../../components/forms/FormQuestionCode";
 
 const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
@@ -64,7 +65,7 @@ const AdminDashboard = () => {
                 <FormQuestionBasic />
               )}
               {valueSelectType.trim() === "Pregunta con Código + Test" && (
-                <h1>hello jiji</h1>
+                <FormQuestionCode />
               )}
             </Row>
           </Modal>
