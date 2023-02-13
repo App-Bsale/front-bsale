@@ -16,6 +16,7 @@ import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import ProtectedRoutes from "./components/router/ProtectedRoutes";
 import Requirements from './pages/stage2'
+import { StageOneOptions } from './pages/stage1/stageOneOptions'
 
 function App() {
   return (
@@ -24,14 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
-            <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
-            <Route
-              path="/stage1/StageOneSolutions"
-              element={<StageOneSolutions />}
-            />
             <Route path="/loginAdmin" element={<LoginAdmin />} />
-            <Route path="/state-one" element={<StageOne />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
             <Route path="/admin/phase1/questions" element={<AllQuestions />} />
@@ -39,12 +33,20 @@ function App() {
               path="/admin/phase1/postulates"
               element={<PostulatesPhase1 />}
             />
+            <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
+            <Route path="/stage1" element={<StageOne />} />
+            <Route path="/stage1/StageOneOptions" element={<StageOneOptions />} />
+            <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
+            <Route
+              path="/stage1/StageOneSolutions"
+              element={<StageOneSolutions />}
+            />
             <Route path="/stage2/requirements" element={<Requirements />} />
             <Route
-              path="/state-tree/continuousImprovement"
+              path="/stage3/codeReview"
               element={<ContinuousImprovement />}
             />
-            <Route path="/state-tree/evaluation" element={<Evaluation />} />
+            <Route path="/stage3/evaluation" element={<Evaluation />} />
             <Route path="/results" element={<Results />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
