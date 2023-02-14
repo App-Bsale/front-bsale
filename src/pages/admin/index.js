@@ -5,19 +5,19 @@ import { Link, NavLink } from "react-router-dom";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import FormQuestionBasic from "../../components/Forms/FormQuestionBasic";
 import { getApi } from "../../services";
-import { PhaseContext } from "../../hooks/PhaseContext";
+// import { PhaseContext } from "../../hooks/PhaseContext";
 import FormQuestionCode from "../../components/forms/FormQuestionCode";
 
 const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
   const [valueSelectType, setValueSelectType] = useState("");
-  const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
-  console.log(phaseOneGlobal);
+  // const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
+  // console.log(phaseOneGlobal);
 
   useEffect(() => {
     getApi("api/phase1").then((res) => {
       console.log(res);
-      setPhaseOneGlobal(res[0]);
+      // setPhaseOneGlobal(res[0]);
     });
   }, []);
 
@@ -69,6 +69,13 @@ const AdminDashboard = () => {
               )}
             </Row>
           </Modal>
+          <Col className="main">
+            <h1>¿Qué desea crear?</h1>
+            <Row style={{ marginBlock: "1rem" }} className="menuLinks">
+              <NavLink to="/admin/form/phase1">Fase 1</NavLink>
+              <NavLink to="/admin/form/phase2">Fase 2</NavLink>
+            </Row>
+          </Col>
           <Row className="cardPhase">
             <Col>
               <h3>Fase 1</h3>

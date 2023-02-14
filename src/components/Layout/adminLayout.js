@@ -28,23 +28,13 @@ const LayoutAdmin = ({ children }) => {
             </Row>
             <Row style={{ marginBlock: "1rem" }}>
               <Button type="text" className="button" block>
-                Crear un usuario
+                <NavLink to="/admin/users">Usuarios</NavLink>
               </Button>
             </Row>
 
-            <Row>
-              <Button type="text" className="button" block>
-                Desactivar un usuario
-              </Button>
-            </Row>
+
           </Col>
           <Col span={20} className="main">
-            <h1>¿Qué desea crear?</h1>
-            <Row style={{ marginBlock: "1rem" }} className="menuLinks">
-              <NavLink to="/admin/form/phase1">Fase 1</NavLink>
-              <NavLink to="/admin/form/phase2">Fase 2</NavLink>
-            </Row>
-
             <Row style={{ height: "inherit" }}>{children}</Row>
           </Col>
         </Row>

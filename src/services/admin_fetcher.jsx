@@ -1,13 +1,16 @@
-import { apiFetch } from "./api_fetcher.jsx";
+import { apiFetch } from "./api_fetcher";
 
-export const LoginUsersFetcher = (function () {
+const AdminFetcher = (() => {
   return {
     login: (data) =>
       apiFetch(
-        "/auth/login",
+        "/auth/admin/login",
         "POST",
         { "Content-Type": "application/json", Accept: "application/json" },
         data
       ),
+
   };
 })();
+
+export default AdminFetcher;

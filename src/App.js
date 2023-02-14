@@ -15,6 +15,7 @@ import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import ProtectedRoutes from "./components/router/ProtectedRoutes";
+import UsersAdmin from "./pages/admin/usersAdmin";
 import Requirements from './pages/stage2'
 import { StageOneOptions } from './pages/stage1/stageOneOptions'
 
@@ -24,6 +25,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
+          <Route path="/admin/users" element={<UsersAdmin />} />
+          <Route path="/admin/phase1/questions" element={<AllQuestions />} />
+          <Route
+            path="/admin/phase1/postulates"
+            element={<PostulatesPhase1 />}
+          />
           <Route element={<ProtectedRoutes />}>
             <Route path="/loginAdmin" element={<LoginAdmin />} />
             <Route path="/admin" element={<AdminDashboard />} />
