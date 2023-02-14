@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoBsale from "../../assets/image/logo-bsale.svg";
 import { SessionContext } from "../../context/SessionContext";
-import { LoginUsersFetcher } from "../../services/login_users_fetcher";
+import { UsersFetcher } from "../../services/users_fetcher";
 import "./login.css";
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
 
   const onSubmit = async (values) => {
     try {
-      const user = await LoginUsersFetcher.login(values);
+      const user = await UsersFetcher.login(values);
       if (user.token) {
         ctx.signIn(user.token);
         sessionStorage.setItem("token", user.token);

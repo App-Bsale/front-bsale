@@ -15,6 +15,7 @@ import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import ProtectedRoutes from "./components/router/ProtectedRoutes";
+import UsersAdmin from "./pages/admin/usersAdmin";
 
 function App() {
   return (
@@ -22,6 +23,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
+          <Route path="/admin/users" element={<UsersAdmin />} />
+          <Route path="/admin/phase1/questions" element={<AllQuestions />} />
+          <Route
+            path="/admin/phase1/postulates"
+            element={<PostulatesPhase1 />}
+          />
           <Route element={<ProtectedRoutes />}>
             <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
             <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
@@ -29,15 +39,7 @@ function App() {
               path="/stage1/StageOneSolutions"
               element={<StageOneSolutions />}
             />
-            <Route path="/loginAdmin" element={<LoginAdmin />} />
             <Route path="/state-one" element={<StageOne />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
-            <Route path="/admin/phase1/questions" element={<AllQuestions />} />
-            <Route
-              path="/admin/phase1/postulates"
-              element={<PostulatesPhase1 />}
-            />
             <Route
               path="/state-tree/continuousImprovement"
               element={<ContinuousImprovement />}
