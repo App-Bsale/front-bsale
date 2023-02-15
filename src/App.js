@@ -16,11 +16,11 @@ import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import UsersAdmin from "./pages/admin/usersAdmin";
 import Requirements from "./pages/stage2";
-import { StageOneOptions } from "./pages/stage1/stageOneOptions";
 import {
   AdminProtectedRoutes,
   UserProtectedRoutes,
 } from "./components/router/ProtectedRoutes";
+import { MultipleChoice } from "./pages/stage1/stageOneOptions";
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route element={<AdminProtectedRoutes user={"admin"} />}>
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/loginAdmin" element={<LoginAdmin />} />
             <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
             <Route path="/admin/users" element={<UsersAdmin />} />
             <Route path="/admin/phase1/questions" element={<AllQuestions />} />
@@ -46,7 +47,7 @@ function App() {
             <Route path="/stage1" element={<StageOne />} />
             <Route
               path="/stage1/StageOneOptions"
-              element={<StageOneOptions />}
+              element={<MultipleChoice />}
             />
             <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
             <Route

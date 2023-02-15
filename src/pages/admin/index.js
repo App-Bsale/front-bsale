@@ -5,8 +5,12 @@ import { Link, NavLink } from "react-router-dom";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import FormQuestionBasic from "../../components/Forms/FormQuestionBasic";
 import { getApi } from "../../services";
+
+import { PhaseContext } from "../../hooks/PhaseContext";
+import FormQuestionCode from "../../components/Forms/FormCode";
+// import FormQuestionCode from "../../components/forms/FormQuestionCode";
+
 // import { PhaseContext } from "../../hooks/PhaseContext";
-import FormQuestionCode from "../../components/forms/FormQuestionCode";
 
 const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
@@ -65,6 +69,10 @@ const AdminDashboard = () => {
                 <FormQuestionBasic />
               )}
               {valueSelectType.trim() === "Pregunta con Código + Test" && (
+                // <FormQuestionCode
+                //   description={"hadad"}
+                //   editorValue={"afdgadh"}
+                // />
                 <FormQuestionCode />
               )}
             </Row>
