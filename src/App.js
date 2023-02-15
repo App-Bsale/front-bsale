@@ -18,6 +18,9 @@ import ProtectedRoutes from "./components/router/ProtectedRoutes";
 import PhaseOneProvider from "./hooks/PhaseContext";
 import { MultipleChoice } from "./pages/stage1/stageOneOptions";
 import StagePage from "./pages/stage1/stage";
+import UsersAdmin from "./pages/admin/usersAdmin";
+import Requirements from "./pages/stage2";
+import { StageOneOptions } from "./pages/stage1/stageOneOptions";
 
 function App() {
   return (
@@ -26,20 +29,18 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/loginAdmin" element={<LoginAdmin />} />
+            <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
+            <Route path="/admin/users" element={<UsersAdmin />} />
+            <Route path="/admin/phase1/questions" element={<AllQuestions />} />
+            <Route
+              path="/admin/phase1/postulates"
+              element={<PostulatesPhase1 />}
+            />
+            <Route path="/state-one" element={<StagePage />} />
             <Route element={<ProtectedRoutes />}>
-              <Route
-                path="/AssignedChallenge"
-                element={<AssignedChallenge />}
-              />
-              <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
-              <Route
-                path="/stage1/StageOneSolutions"
-                element={<StageOneSolutions />}
-              />
-
-              <Route path="/stage1Challenge" element={<StagePage />} />
               <Route path="/loginAdmin" element={<LoginAdmin />} />
-              <Route path="/state-one" element={<StageOne />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
               <Route
@@ -50,12 +51,26 @@ function App() {
                 path="/admin/phase1/postulates"
                 element={<PostulatesPhase1 />}
               />
-
               <Route
-                path="/state-tree/continuousImprovement"
+                path="/AssignedChallenge"
+                element={<AssignedChallenge />}
+              />
+              <Route path="/stage1" element={<StageOne />} />
+              <Route
+                path="/stage1/StageOneOptions"
+                element={<StageOneOptions />}
+              />
+              <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
+              <Route
+                path="/stage1/StageOneSolutions"
+                element={<StageOneSolutions />}
+              />
+              <Route path="/stage2/requirements" element={<Requirements />} />
+              <Route
+                path="/stage3/codeReview"
                 element={<ContinuousImprovement />}
               />
-              <Route path="/state-tree/evaluation" element={<Evaluation />} />
+              <Route path="/stage3/evaluation" element={<Evaluation />} />
               <Route path="/results" element={<Results />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />

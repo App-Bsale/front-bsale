@@ -1,0 +1,124 @@
+.container-stage2 {
+    height: 1295px;
+    margin: auto;
+    max-width: 868px;
+    width: 100%;
+}
+
+.requirement {
+    height: 893px;
+}
+
+.requirement-text {
+    height: 225px;
+    margin-bottom: 32px;
+}
+
+.description-test {
+    height: 214px;
+    display: flex;
+    flex-direction: column;
+}
+
+.description-test>div {
+    height: 28px;
+    margin: 0px 19px 16px 19px;
+    display: flex;
+    gap: 10px;
+    line-height: 22px;
+    align-items: center;
+}
+
+.table{
+    width: 824px;
+    height: 242px;
+}
+
+.table-cell {
+    border: #B9B9B9 solid;
+}
+
+.project-url{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 32px 0 32px 0;
+}
+
+.project-url>input{
+    width: 280px;
+    height: 36px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.button-test-stage2{
+    width: 127px;
+    height: 36px;
+    background: #31B9DD;
+}
+
+.stage2-test>div {
+    height: 52px;
+    margin: 0px 19px 16px 19px;
+    display: flex;
+    gap: 10px;
+    line-height: 22px;
+    align-items: center;
+    border: 1px solid #EF4444;
+}
+
+.dot{
+    width: 28px;
+    height: 28px;
+    margin-left: 32px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #EF4444;
+}
+.stage2-test>div:nth-child(1) {
+    margin-top: 27px;
+    border: 1px solid #44C566;
+}
+
+.stage2-test>div:nth-child(4) {
+    margin-bottom: 27px;
+    border: 1px solid #44C566;
+}
+
+.github-repo-url{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 32px 0 32px 0;
+}
+
+.github-repo-url>input {
+    width: 280px;
+    height: 36px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.button-send-stage2 {
+    width: 127px;
+    height: 36px;
+    background: #FF5B00;
+}
+
+.button-next-stage2 {
+    display: flex;
+    margin: auto;
+    margin-top: 64px;
+    justify-content: center;
+    background: #FF5B00;
+}

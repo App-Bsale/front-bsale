@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../../../components/Layout/Layout";
 import { getApi } from "../../../services";
-import { MultipleChoice } from "../stageOneOptions";
+import { StageOneOptions as MultipleChoice } from "../stageOneOptions";
 import StageOneCode from "../stageOneCode";
 const StagePage = () => {
   const [dataQuestion, setDataQuestion] = useState([]);

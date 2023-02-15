@@ -1,0 +1,21 @@
+.container-stageOneSolutions {
+    height: 1295px;
+    margin: auto;
+    max-width: 868px;
+    width: 100%;
+}
+
+.solution {
+    height: 893px;
+}
+
+.solution-text {
+    height: 112px;
+    margin-bottom: 32px;
+}
+
+.button-next {
+    display: flex;
+    margin: auto;
+    background: #FF5B00;
+}
