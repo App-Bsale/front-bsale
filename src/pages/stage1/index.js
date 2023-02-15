@@ -14,8 +14,6 @@ const StageOne = () => {
     getApi("api/phase1").then((res) => setStageOne(res[0]));
   }, []);
 
-  console.log(stageOne);
-
   return (
     <>
       <Navbar />
