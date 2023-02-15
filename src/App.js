@@ -15,8 +15,9 @@ import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
 import ProtectedRoutes from "./components/router/ProtectedRoutes";
-import Requirements from './pages/stage2'
-import { StageOneOptions } from './pages/stage1/stageOneOptions'
+import Requirements from "./pages/stage2";
+import { StageOneOptions } from "./pages/stage1/stageOneOptions";
+import TableDataEvaluationUsers from "./components/tableDataEvaluationUsers/tableDataEvaluationUsers";
 
 function App() {
   return (
@@ -30,12 +31,20 @@ function App() {
             <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
             <Route path="/admin/phase1/questions" element={<AllQuestions />} />
             <Route
+              path="/admin/tableDataEvaluationUsers"
+              element={<TableDataEvaluationUsers />}
+            />
+
+            <Route
               path="/admin/phase1/postulates"
               element={<PostulatesPhase1 />}
             />
             <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
             <Route path="/stage1" element={<StageOne />} />
-            <Route path="/stage1/StageOneOptions" element={<StageOneOptions />} />
+            <Route
+              path="/stage1/StageOneOptions"
+              element={<StageOneOptions />}
+            />
             <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
             <Route
               path="/stage1/StageOneSolutions"
