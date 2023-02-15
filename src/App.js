@@ -14,38 +14,40 @@ import Login from "./pages/login";
 import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
-import ProtectedRoutes from "./components/router/ProtectedRoutes";
 import UsersAdmin from "./pages/admin/usersAdmin";
-import Requirements from './pages/stage2'
-import { StageOneOptions } from './pages/stage1/stageOneOptions'
+import Requirements from "./pages/stage2";
+import { StageOneOptions } from "./pages/stage1/stageOneOptions";
+import {
+  AdminProtectedRoutes,
+  UserProtectedRoutes,
+} from "./components/router/ProtectedRoutes";
 
 function App() {
   return (
     <SessionProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          {/* Rutas del admin */}
           <Route path="/loginAdmin" element={<LoginAdmin />} />
-          <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
-          <Route path="/admin/users" element={<UsersAdmin />} />
-          <Route path="/admin/phase1/questions" element={<AllQuestions />} />
-          <Route
-            path="/admin/phase1/postulates"
-            element={<PostulatesPhase1 />}
-          />
-          <Route element={<ProtectedRoutes />}>
-            <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route element={<AdminProtectedRoutes user={"admin"} />}>
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
+            <Route path="/admin/users" element={<UsersAdmin />} />
             <Route path="/admin/phase1/questions" element={<AllQuestions />} />
             <Route
               path="/admin/phase1/postulates"
               element={<PostulatesPhase1 />}
             />
+          </Route>
+          {/* Rutas del usuario normal */}
+          <Route path="/" element={<Login />} />
+          <Route element={<UserProtectedRoutes user={"user"} />}>
             <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
             <Route path="/stage1" element={<StageOne />} />
-            <Route path="/stage1/StageOneOptions" element={<StageOneOptions />} />
+            <Route
+              path="/stage1/StageOneOptions"
+              element={<StageOneOptions />}
+            />
             <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
             <Route
               path="/stage1/StageOneSolutions"
@@ -59,6 +61,7 @@ function App() {
             <Route path="/stage3/evaluation" element={<Evaluation />} />
             <Route path="/results" element={<Results />} />
           </Route>
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

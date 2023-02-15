@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem("tokenUser");
     if (token) {
       ctx.signIn(token);
     }
@@ -31,7 +31,7 @@ const Login = () => {
       const user = await UsersFetcher.login(values);
       if (user.token) {
         ctx.signIn(user.token);
-        sessionStorage.setItem("token", user.token);
+        sessionStorage.setItem("tokenUser", user.token);
       }
     } catch (e) {
       console.log(e.message);

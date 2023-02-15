@@ -14,7 +14,6 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { createGlobalStyle } from "styled-components";
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -22,7 +21,6 @@ const UsersAdmin = () => {
   const [editingUser, setEditingUser] = useState({});
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [creatingUser, setCreatingUser] = useState({});
-
 
   const getAllUsers = () => {
     UsersFetcher.all().then((user) => setAllUsers(user));
@@ -37,14 +35,12 @@ const UsersAdmin = () => {
   };
 
   const handlerUpdate = (data) => {
-    console.log(data.uid);
     setEditingUser(data);
     setIsEditing(true);
   };
 
   const handleSave = async () => {
     try {
-      console.log(editingUser);
       await UsersFetcher.update(editingUser);
       setIsEditing(false);
       getAllUsers();
@@ -55,8 +51,7 @@ const UsersAdmin = () => {
 
   const handleSaveUser = async () => {
     try {
-      console.log(creatingUser)
-      await UsersFetcher.post(creatingUser)
+      await UsersFetcher.post(creatingUser);
       setIsEditingUser(false);
       getAllUsers();
     } catch (error) {
@@ -136,7 +131,11 @@ const UsersAdmin = () => {
             }}
           >
             <h1>All users</h1>
-            <Button onClick={(e) => setIsEditingUser(true)} type="primary" htmlType="submit">
+            <Button
+              onClick={(e) => setIsEditingUser(true)}
+              type="primary"
+              htmlType="submit"
+            >
               Crear Usuario
             </Button>
           </div>
