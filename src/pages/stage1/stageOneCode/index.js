@@ -4,14 +4,23 @@ import { Button } from "antd";
 import "./style.css";
 import { CodeEditor } from "../../../components/CodeEditor/codeEditor";
 
-const StageOneCode = ({ description, editorValue, test1, test2, test3 }) => {
-  console.log(editorValue);
+const StageOneCode = ({
+  description,
+  editorValue,
+  index,
+  test1,
+  test2,
+  test3,
+  totalQuestion,
+}) => {
   return (
     <>
       <div className="container-stageOneCode">
         <h4>Desarrollador Web Junior</h4>
         <div className="test">
-          <h4>Pregunta 6 de 10</h4>
+          <h4>
+            Pregunta {index + 1} de {totalQuestion}
+          </h4>
           <p className="test-text">{description}</p>
           <CodeEditor value={editorValue} />
           <Button className="button-test" type="primary">

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../../../components/Layout/Layout";
 import { getApi } from "../../../services";
-import { StageOneOptions as MultipleChoice } from "../stageOneOptions";
+import { MultipleChoice } from "../stageOneOptions";
 import StageOneCode from "../stageOneCode";
 const StagePage = () => {
   const [dataQuestion, setDataQuestion] = useState([]);
@@ -34,9 +34,11 @@ const StagePage = () => {
               <StageOneCode
                 description={questionItem.description}
                 editorValue={questionItem.codeFunc}
+                index={indexQuestion}
                 test1={questionItem.test1}
                 test2={questionItem.test2}
                 test3={questionItem.test3}
+                totalQuestion={dataQuestion.length}
               />
             );
           }
