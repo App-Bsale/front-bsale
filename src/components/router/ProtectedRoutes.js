@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { SessionContext } from "../../context/SessionContext";
 
 const AdminProtectedRoutes = ({ user }) => {
-  if (user === "admin" && sessionStorage.getItem("tokenAdmin")){
+  
+  const ctx = useContext(SessionContext)
+  console.log(ctx.session)
+
+  if (user === "admin" && sessionStorage.getItem("tokenAdmin") && ctx.session ){
     return <Outlet />
   }  else {
     return <Navigate to="/loginAdmin" />

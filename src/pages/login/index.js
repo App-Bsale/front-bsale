@@ -12,15 +12,15 @@ const Login = () => {
   const ctx = useContext(SessionContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = sessionStorage.getItem("tokenUser");
-    if (token) {
-      ctx.signIn(token);
-    }
-  }, [ctx]);
+  // useEffect(() => {
+  //   const token = sessionStorage.getItem("tokenUser");
+  //   if (token) {
+  //     ctx.signIn(token);
+  //   }
+  // }, [ctx]);
 
   useEffect(() => {
-    console.log(ctx.session.token);
+    console.log(ctx.session.userData);
     if (ctx.session.token) {
       navigate("/assignedChallenge");
     }
@@ -30,7 +30,7 @@ const Login = () => {
     try {
       const user = await UsersFetcher.login(values);
       if (user.token) {
-        ctx.signIn(user.token);
+        ctx.signIn(user.token, user.user);
         sessionStorage.setItem("tokenUser", user.token);
       }
     } catch (e) {
