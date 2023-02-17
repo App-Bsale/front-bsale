@@ -13,14 +13,13 @@ const LoginAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem("tokenAdmin");
     if (token) {
       ctx.signIn(token);
     }
   }, [ctx]);
 
   useEffect(() => {
-    console.log(ctx.session.token);
     if (ctx.session.token) {
       navigate("/admin");
     }
@@ -31,9 +30,8 @@ const LoginAdmin = () => {
       const user = await AdminFetcher.login(values);
       console.log(user)
       if (user.token) {
-        console.log(user.token)
         ctx.signIn(user.token);
-        sessionStorage.setItem("token", user.token);
+        sessionStorage.setItem("tokenAdmin", user.token);
       }
     } catch (e) {
       console.log(e.message);
