@@ -26,6 +26,6 @@ export const apiFetch = async function (
 
   if (response.status === 204) return {};
   const devolution  = await response.json();
-  console.log(devolution)
+  // console.log(devolution)
   return devolution
 };
