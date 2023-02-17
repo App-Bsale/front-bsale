@@ -7,14 +7,11 @@ import "./navbar.css";
 
 const Navbar = () => {
   const ctx = useContext(SessionContext);
-  const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log(ctx.session);
     sessionStorage.clear();
     ctx.logout();
     console.log(ctx.session);
-    navigate("/");
   };
 
   return (
