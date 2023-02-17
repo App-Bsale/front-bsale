@@ -21,6 +21,7 @@ import {
   UserProtectedRoutes,
 } from "./components/router/ProtectedRoutes";
 import { MultipleChoice } from "./pages/stage1/stageOneOptions";
+import StagePage from "./pages/stage1/stage";
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
           <Route element={<UserProtectedRoutes user={"user"} />}>
             <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
             <Route path="/stage1" element={<StageOne />} />
+            <Route path="/stagePageOne" element={<StagePage />} />
+
             <Route
               path="/stage1/StageOneOptions"
               element={<MultipleChoice />}
