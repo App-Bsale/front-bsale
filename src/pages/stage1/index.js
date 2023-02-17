@@ -28,7 +28,7 @@ const StageOne = () => {
         <Button
           className="button_primary"
           type="primary"
-          onClick={() => navigate("/stage1Challenge")}
+          onClick={() => navigate("/stagePageOne")}
         >
           Iniciar
         </Button>
