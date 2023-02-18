@@ -4,7 +4,7 @@ const AdminFetcher = (() => {
   return {
     login: (data) =>
       apiFetch(
-        "/auth/admin/login",
+        "/admin/login",
         "POST",
         { "Content-Type": "application/json", Accept: "application/json" },
         data

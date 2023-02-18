@@ -13,8 +13,8 @@ export const SessionContext = createContext({
 export const SessionProvider = ({ children }) => {
   const [session, dispatch] = useSessionReducer();
 
-  function signIn(token) {
-    dispatch({ type: SIGN_IN, token });
+  function signIn(token, userData, userType) {
+    dispatch({ type: SIGN_IN, token: token, userData: userData, userType });
   }
 
   function logout() {

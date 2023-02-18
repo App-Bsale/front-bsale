@@ -36,7 +36,8 @@ export const UsersFetcher = (function () {
         {
           name: data.name,
           email: data.email,
-          password: data.password
+          password: data.password,
+          status: data.status
         }
 
       )

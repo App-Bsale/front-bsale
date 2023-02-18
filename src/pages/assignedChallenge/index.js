@@ -34,7 +34,7 @@ const AssignedChallenge = () => {
                 <Button
                   type="primary"
                   className="button-challenge"
-                  onClick={() => navigate("/state-one")}
+                  onClick={() => navigate("/stage1")}
                 >
                   Iniciar
                 </Button>
