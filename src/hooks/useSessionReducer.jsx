@@ -6,10 +6,10 @@ export const SIGN_OUT = "SIGN_OUT";
 function sessionReducer(state, action) {
   switch (action.type) {
     case SIGN_IN:
-      const { userData, token } = action;
-      return { ...state, userData, token };
+      const {userData, token, userType  } = action;
+      return { ...state, userData, token, userType };
     case SIGN_OUT:
-      return { ...state, userData: null, token: null };
+      return { ...state, userData: null, token: null, userType: null };
     default:
       return state;
   }

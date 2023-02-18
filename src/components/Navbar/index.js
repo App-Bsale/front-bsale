@@ -12,7 +12,6 @@ const Navbar = () => {
   const handleLogout = () => {
     sessionStorage.clear();
     ctx.logout();
-    console.log(ctx.session);
   };
 
   return (
