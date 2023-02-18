@@ -1,9 +1,12 @@
 import { Button, Col, Layout, Row } from "antd";
 import React from "react";
-
 import { NavLink } from "react-router-dom";
+import { useThemeContext } from "../../context/ThemeContext";
+import DarkMode from "../DarkMode/darkMode";
 
 const LayoutAdmin = ({ children }) => {
+  const { contextTheme, setContextTheme } = useThemeContext();
+
   return (
     <>
       <Layout style={{ height: "100vh" }}>
@@ -31,10 +34,9 @@ const LayoutAdmin = ({ children }) => {
                 <NavLink to="/admin/users">Usuarios</NavLink>
               </Button>
             </Row>
-
-
           </Col>
-          <Col span={20} className="main">
+          <Col span={20} className="container-main" id={contextTheme}>
+            <DarkMode />
             <Row style={{ height: "inherit" }}>{children}</Row>
           </Col>
         </Row>

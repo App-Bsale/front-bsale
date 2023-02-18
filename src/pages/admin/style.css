@@ -11,6 +11,11 @@
   background-color: white;
 }
 
+.container-main {
+  padding: 2rem;
+  background-color: white;
+}
+
 .menuLinks {
   display: flex;
   column-gap: 1rem;
