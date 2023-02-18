@@ -17,8 +17,6 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import {
   CheckOutlined,
   CloseOutlined,
-  DeleteOutlined,
-  EditOutlined,
 } from "@ant-design/icons";
 
 

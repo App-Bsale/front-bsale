@@ -21,7 +21,7 @@ export const MultipleChoice = ({
 
   return (
     <>
-      <div className="container_multipleChoice ">
+      <div className="container_multipleChoice">
         <div>
           <h2>Desarrollador Web Junior</h2>
           <h2>
