@@ -27,6 +27,8 @@ import {
   AdminProtectedRoutes,
   UserProtectedRoutes,
 } from "./components/router/ProtectedRoutes";
+import MultipleChoice from "./pages/stage1/stageOneOptions/index";
+import StagePage from "./pages/stage1/stage";
 
 
 function App() {
@@ -38,10 +40,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Rutas del admin */}
-          <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route path="/admin" element={<LoginAdmin />} />
           <Route element={<AdminProtectedRoutes user={"admin"} />}>
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/loginAdmin" element={<LoginAdmin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
             <Route path="/admin/users" element={<UsersAdmin />} />
             <Route path="/admin/phase1/questions" element={<AllQuestions />} />

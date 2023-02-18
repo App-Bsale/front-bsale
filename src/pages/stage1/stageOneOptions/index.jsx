@@ -4,7 +4,7 @@ import Layout from "../../../components/Layout/Layout";
 import { useNavigate } from "react-router-dom";
 // import Example1 from "../assets/image/example1.png";
 
-export const MultipleChoice = ({
+const MultipleChoice = ({
   description,
   alternatives,
   imageUrl,
@@ -53,3 +53,5 @@ export const MultipleChoice = ({
     </>
   );
 };
+
+export default MultipleChoice;

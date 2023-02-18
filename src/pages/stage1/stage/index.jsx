@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import Layout from "../../../components/Layout/Layout";
 import { getApi } from "../../../services";
-import { MultipleChoice } from "../stageOneOptions";
 import StageOneCode from "../stageOneCode";
+import MultipleChoice from "../stageOneOptions/index"
+
 const StagePage = () => {
   const [dataQuestion, setDataQuestion] = useState([]);
   const [indexQuestion, setIndexQuestion] = useState(0);
+
 
   useEffect(() => {
     getApi("api/phase1/question").then((res) => {
