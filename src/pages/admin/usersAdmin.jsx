@@ -13,12 +13,14 @@ import {
 } from "antd";
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import {
   CheckOutlined,
   CloseOutlined,
   DeleteOutlined,
   EditOutlined,
 } from "@ant-design/icons";
+
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);

@@ -14,17 +14,26 @@ import Login from "./pages/login";
 import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
-import UsersAdmin from "./pages/admin/usersAdmin";
+import ProtectedRoutes from "./components/router/ProtectedRoutes";
 import Requirements from "./pages/stage2";
+import { StageOneOptions } from "./pages/stage1/stageOneOptions";
+import TableDataEvaluationUsers from "./components/tableDataEvaluationUsers/tableDataEvaluationUsers";
+import PhaseOneProvider from "./hooks/PhaseContext";
+import StagePage from "./pages/stage1/stage";
+import UsersAdmin from "./pages/admin/usersAdmin";
+import { MultipleChoice } from "./pages/stage1/stageOneOptions";
+import { useThemeContext } from "./context/ThemeContext";
 import {
   AdminProtectedRoutes,
   UserProtectedRoutes,
 } from "./components/router/ProtectedRoutes";
-import { MultipleChoice } from "./pages/stage1/stageOneOptions";
-import StagePage from "./pages/stage1/stage";
+
 
 function App() {
+  const { contextTheme, setContextTheme } = useThemeContext();
+
   return (
+  <div id={contextTheme}>
     <SessionProvider>
       <BrowserRouter>
         <Routes>
@@ -40,6 +49,10 @@ function App() {
               path="/admin/phase1/postulates"
               element={<PostulatesPhase1 />}
             />
+            <Route
+              path="/admin/tableDataEvaluationUsers"
+              element={<TableDataEvaluationUsers />}
+             />
           </Route>
           {/* Rutas del usuario normal */}
           <Route path="/" element={<Login />} />
@@ -47,7 +60,6 @@ function App() {
             <Route path="/AssignedChallenge" element={<AssignedChallenge />} />
             <Route path="/stage1" element={<StageOne />} />
             <Route path="/stagePageOne" element={<StagePage />} />
-
             <Route
               path="/stage1/StageOneOptions"
               element={<MultipleChoice />}
@@ -70,6 +82,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </SessionProvider>
+   </div>
   );
 }
 
