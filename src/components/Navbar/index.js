@@ -1,5 +1,6 @@
 import { Button } from "antd";
 import LogoBsale from "../../assets/image/logo-bsale.svg";
+import DarkMode from "../DarkMode/darkMode";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
           <div className="container-navbar">
             <img className="logo" src={LogoBsale} alt="logo-navbar" />
             <div className="text">Desafíate!</div>
+            <DarkMode />
           </div>
           <Button
             style={{ maxWidth: "99px" }}

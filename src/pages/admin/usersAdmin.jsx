@@ -14,7 +14,6 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { createGlobalStyle } from "styled-components";
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);

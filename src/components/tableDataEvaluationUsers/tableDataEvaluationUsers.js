@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 const columns = [
   {
     name: "ID",
-    selector: "id",
+    selector: "uid",
   },
   {
     name: "Name",

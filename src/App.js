@@ -22,64 +22,69 @@ import PhaseOneProvider from "./hooks/PhaseContext";
 import StagePage from "./pages/stage1/stage";
 import UsersAdmin from "./pages/admin/usersAdmin";
 import { MultipleChoice } from "./pages/stage1/stageOneOptions";
+import { useThemeContext } from "./context/ThemeContext";
 
 function App() {
-  return (
-    <SessionProvider>
-      <PhaseOneProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route
-                path="/admin/tableDataEvaluationUsers"
-                element={<TableDataEvaluationUsers />}
-              />
+  const { contextTheme, setContextTheme } = useThemeContext();
 
-              <Route
-                path="/admin/phase1/postulates"
-                element={<PostulatesPhase1 />}
-              />
-              <Route path="/state-one" element={<StagePage />} />
+  return (
+    <div id={contextTheme}>
+      <SessionProvider>
+        <PhaseOneProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
               <Route path="/loginAdmin" element={<LoginAdmin />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/users" element={<UsersAdmin />} />
-              <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
-              <Route
-                path="/admin/phase1/questions"
-                element={<AllQuestions />}
-              />
-              <Route
-                path="/admin/phase1/postulates"
-                element={<PostulatesPhase1 />}
-              />
-              <Route
-                path="/AssignedChallenge"
-                element={<AssignedChallenge />}
-              />
-              <Route path="/stage1" element={<StageOne />} />
-              <Route
-                path="/stage1/StageOneOptions"
-                element={<MultipleChoice />}
-              />
-              <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
-              <Route
-                path="/stage1/StageOneSolutions"
-                element={<StageOneSolutions />}
-              />
-              <Route path="/stage2/requirements" element={<Requirements />} />
-              <Route
-                path="/stage3/codeReview"
-                element={<ContinuousImprovement />}
-              />
-              <Route path="/stage3/evaluation" element={<Evaluation />} />
-              <Route path="/results" element={<Results />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </BrowserRouter>
-      </PhaseOneProvider>
-    </SessionProvider>
+              <Route element={<ProtectedRoutes />}>
+                <Route
+                  path="/admin/tableDataEvaluationUsers"
+                  element={<TableDataEvaluationUsers />}
+                />
+
+                <Route
+                  path="/admin/phase1/postulates"
+                  element={<PostulatesPhase1 />}
+                />
+                <Route path="/state-one" element={<StagePage />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/users" element={<UsersAdmin />} />
+                <Route path="/admin/form/phase1" element={<FormPhaseOne />} />
+                <Route
+                  path="/admin/phase1/questions"
+                  element={<AllQuestions />}
+                />
+                <Route
+                  path="/admin/phase1/postulates"
+                  element={<PostulatesPhase1 />}
+                />
+                <Route
+                  path="/AssignedChallenge"
+                  element={<AssignedChallenge />}
+                />
+                <Route path="/stage1" element={<StageOne />} />
+                <Route
+                  path="/stage1/StageOneOptions"
+                  element={<MultipleChoice />}
+                />
+                <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
+                <Route
+                  path="/stage1/StageOneSolutions"
+                  element={<StageOneSolutions />}
+                />
+                <Route path="/stage2/requirements" element={<Requirements />} />
+                <Route
+                  path="/stage3/codeReview"
+                  element={<ContinuousImprovement />}
+                />
+                <Route path="/stage3/evaluation" element={<Evaluation />} />
+                <Route path="/results" element={<Results />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </BrowserRouter>
+        </PhaseOneProvider>
+      </SessionProvider>
+    </div>
   );
 }
 

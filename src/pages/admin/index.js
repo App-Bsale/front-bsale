@@ -8,6 +8,7 @@ import { getApi } from "../../services";
 
 import { PhaseContext } from "../../hooks/PhaseContext";
 import FormQuestionCode from "../../components/Forms/FormCode";
+import { useThemeContext } from "../../context/ThemeContext";
 // import FormQuestionCode from "../../components/forms/FormQuestionCode";
 
 // import { PhaseContext } from "../../hooks/PhaseContext";
@@ -36,10 +37,13 @@ const AdminDashboard = () => {
   const handleCancel = () => {
     setIsModalOpenQuestion(false);
   };
+
+  const { contextTheme, setContextTheme } = useThemeContext();
+
   return (
     <>
       <LayoutAdmin>
-        <Layout>
+        <Layout id={contextTheme}>
           <Modal
             title="Elige que tipo de pregunta deseas crear"
             open={isModalQuestion}
@@ -77,14 +81,14 @@ const AdminDashboard = () => {
               )}
             </Row>
           </Modal>
-          <Col className="main">
+          <Col className="main" id={contextTheme}>
             <h1>¿Qué desea crear?</h1>
             <Row style={{ marginBlock: "1rem" }} className="menuLinks">
               <NavLink to="/admin/form/phase1">Fase 1</NavLink>
               <NavLink to="/admin/form/phase2">Fase 2</NavLink>
             </Row>
           </Col>
-          <Row className="cardPhase">
+          <Row className="cardPhase" id={contextTheme}>
             <Col>
               <h3>Fase 1</h3>
             </Col>
@@ -100,7 +104,7 @@ const AdminDashboard = () => {
               </Button>
             </Col>
           </Row>
-          <Row className="cardPhase">
+          <Row className="cardPhase" id={contextTheme}>
             <Col>
               <h3>Fase 2</h3>
             </Col>
