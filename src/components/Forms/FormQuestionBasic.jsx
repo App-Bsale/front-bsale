@@ -25,7 +25,10 @@ const FormQuestionBasic = () => {
   const [phaseInfo, setPhaseInfo] = useState(null);
 
   useEffect(() => {
-    getApi("api/phase1").then((res) => setPhaseInfo(res[0]));
+    getApi("api/phase1").then((res) => {
+      console.log(res[0].id);
+      setPhaseInfo(res[0]);
+    });
   }, []);
 
   useEffect(() => {
@@ -56,7 +59,8 @@ const FormQuestionBasic = () => {
     try {
       postApi("api/phase1/question", {
         ...values,
-        idPhase: phaseInfo._id,
+        type: "select",
+        idPhase: phaseInfo.id,
         image: imageUrl || "",
       })
         .then((res) => {
