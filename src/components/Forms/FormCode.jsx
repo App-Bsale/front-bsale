@@ -20,9 +20,9 @@ const tailLayout = {
 const FormQuestionCode = ({ description, editorValue }) => {
   const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
   const [form] = Form.useForm();
-  const [code, setCode] = useState(
-    "function myFunction(params) {// write your code here}"
-  );
+  const [code, setCode] = useState(`const myFunction = (params) => {
+    // write your code here
+  }`);
 
   const onReset = () => {
     form.resetFields();
@@ -32,15 +32,18 @@ const FormQuestionCode = ({ description, editorValue }) => {
     try {
       const newObject = {
         ...values,
-        code,
+        codeFunc: code,
         phase1: phaseOneGlobal.id,
+        type: "code",
       };
       console.log(newObject);
       postApi("api/phase1/questionWithCode", newObject).then((res) => {
         if (res.id) {
           notifySuccess("se ha creado satisfactoriamente la pregunta");
           onReset();
-          setCode("function myFunction(params) {// write your code here}");
+          setCode(`const myFunction = (params) => {
+    // write your code here
+  }`);
         } else {
           notifyError("No se pudo crear la pregunta");
         }
@@ -77,9 +80,7 @@ const FormQuestionCode = ({ description, editorValue }) => {
             className="editor"
             theme="vs-dark"
             defaultLanguage="javascript"
-            value="function myFunction(params) {
-              // write your code here
-            }"
+            value={`${code}`}
             onChange={(e) => setCode(e)}
           />
         </div>

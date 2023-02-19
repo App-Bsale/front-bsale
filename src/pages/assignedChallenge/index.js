@@ -2,10 +2,15 @@ import Layout from "../../components/Layout/Layout";
 import { Collapse, Button } from "antd";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+// import { useContext } from "react";
+// import { SessionContext } from "../../context/SessionContext";
 
 const AssignedChallenge = () => {
   const navigate = useNavigate();
   const { Panel } = Collapse;
+
+
+
   const text = `Tincidunt elit vitae urna viverra fermentum. Egestas nam mauris
         id ipsum orci congue. Non tincidunt viverra lacus et vitae vel netus.
         Neque interdum semper donec viverra ipsum mi amet ullamcorper. Senectus odio
@@ -34,7 +39,7 @@ const AssignedChallenge = () => {
                 <Button
                   type="primary"
                   className="button-challenge"
-                  onClick={() => navigate("/state-one")}
+                  onClick={() => navigate("/stage1")}
                 >
                   Iniciar
                 </Button>

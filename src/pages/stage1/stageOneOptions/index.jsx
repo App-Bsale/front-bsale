@@ -2,32 +2,47 @@ import { Button } from "antd";
 import "../../../styles/multipleChoice.css";
 import Layout from "../../../components/Layout/Layout";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PacmanLoader } from "react-spinners";
 import { postApi } from "../../../services/fetchApi";
 import useSessionReducer from "../../../hooks/useSessionReducer";
 // import Example1 from "../assets/image/example1.png";
 
-export const MultipleChoice = ({
+const MultipleChoice = ({
   description,
   alternatives,
   imageUrl,
   index,
   totalQuestion,
   setIndexQuestion,
+  idQuestion,
 }) => {
   const navigate = useNavigate();
   const [valueInput, setValueInput] = useState("");
   const [showLoading, setShowLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
   const data = useSessionReducer();
+  useEffect(() => {
+    const { user } = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    console.log(idQuestion);
+    setUserData(user);
+  }, []);
 
-  const validateAnswer = (idQuestion) => {
+  const validateAnswer = () => {
     setShowLoading(true);
-    console.log(data);
-    // postApi(`api/answer/validateAnswer/${"ehje"}/${"ehje"}`);
-    // setIndexQuestion((state) => {
-    //   return state + 1;
-    // });
+    console.log(`api/answer/validateAnswer/${idQuestion}/${userData.uid}`);
+    //backend-bsale-production.up.railway.app/api/answer/validateAnswer/63ecfd8978b2c6bd68819709/63eb19eb2935908ab505ebbb
+    https: postApi(`api/answer/validateAnswer/${idQuestion}/${userData.uid}`, {
+      response: valueInput,
+    }).then((response) => {
+      if (response.message) {
+        setShowLoading(false);
+        setIndexQuestion((state) => {
+          return state + 1;
+        });
+      }
+    });
   };
 
   return (
@@ -71,3 +86,5 @@ export const MultipleChoice = ({
     </>
   );
 };
+
+export default MultipleChoice;

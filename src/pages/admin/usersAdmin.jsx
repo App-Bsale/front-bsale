@@ -14,7 +14,7 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { createGlobalStyle } from "styled-components";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -22,7 +22,7 @@ const UsersAdmin = () => {
   const [editingUser, setEditingUser] = useState({});
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [creatingUser, setCreatingUser] = useState({});
-
+  const [userState, setUserState] = useState(null);
 
   const getAllUsers = () => {
     UsersFetcher.all().then((user) => setAllUsers(user));
@@ -37,7 +37,6 @@ const UsersAdmin = () => {
   };
 
   const handlerUpdate = (data) => {
-    console.log(data.uid);
     setEditingUser(data);
     setIsEditing(true);
   };
@@ -55,8 +54,7 @@ const UsersAdmin = () => {
 
   const handleSaveUser = async () => {
     try {
-      console.log(creatingUser)
-      await UsersFetcher.post(creatingUser)
+      await UsersFetcher.post(creatingUser);
       setIsEditingUser(false);
       getAllUsers();
     } catch (error) {
@@ -64,16 +62,24 @@ const UsersAdmin = () => {
     }
   };
 
-  const handleActiveChange = (record, value) => {
-    console.log(record.uid, record.status, value);
+  const handleActiveChange = async (record, value) => {
+    const body = {
+      uid: record.uid,
+      status: value,
+    };
+    try {
+      console.log(body);
+      await UsersFetcher.update(body);
+      getAllUsers();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleCancel = () => {
     setIsEditing(false);
     setIsEditingUser(false);
   };
-
-  console.log(allUsers);
 
   const columns = [
     {
@@ -97,7 +103,9 @@ const UsersAdmin = () => {
       key: "status",
       render: (text, record) => (
         <Switch
-          checked={text}
+          checkedChildren={<CheckOutlined />}
+          unCheckedChildren={<CloseOutlined />}
+          defaultChecked={record.status}
           onChange={(value) => handleActiveChange(record, value)}
         />
       ),
@@ -136,7 +144,11 @@ const UsersAdmin = () => {
             }}
           >
             <h1>All users</h1>
-            <Button onClick={(e) => setIsEditingUser(true)} type="primary" htmlType="submit">
+            <Button
+              onClick={(e) => setIsEditingUser(true)}
+              type="primary"
+              htmlType="submit"
+            >
               Crear Usuario
             </Button>
           </div>

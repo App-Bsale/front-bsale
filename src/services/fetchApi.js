@@ -8,7 +8,7 @@ export const getApi = async (endpoint) => {
 };
 
 export const postApi = async (endpoint, data) => {
-  console.log(data);
+  console.log(`${URL}/${endpoint}`);
   const response = await fetch(`${URL}/${endpoint}`, {
     method: "POST",
     headers: {
