@@ -17,9 +17,8 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import {
   CheckOutlined,
   CloseOutlined,
-  DeleteOutlined,
-  EditOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 
 const UsersAdmin = () => {
@@ -149,14 +148,28 @@ const UsersAdmin = () => {
               marginTop: 16,
             }}
           >
-            <h1>All users</h1>
-            <Button
-              onClick={(e) => setIsEditingUser(true)}
-              type="primary"
-              htmlType="submit"
-            >
-              Crear Usuario
-            </Button>
+            <h1 style = {{color: "#e54e24", marginLeft:"16px"}}>All users</h1>
+            <div style={{
+              display: "flex",
+              gap: "8px",
+              marginRight: "8px",  
+            }}>
+              <Button
+                type="primary"
+                htmlType="submit"
+              >
+                <Link to="/admin/tableDataEvaluationUsers">
+                  Resultados
+                </Link>
+              </Button>
+              <Button
+                onClick={(e) => setIsEditingUser(true)}
+                type="primary"
+                htmlType="submit"
+              >
+                Crear Usuario
+              </Button>
+            </div>
           </div>
           <Table dataSource={allUsers} columns={columns} />
           <Modal
