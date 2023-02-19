@@ -1,19 +1,18 @@
 .button_primary {
   background-color: #ff5b00;
+  margin-bottom: 99px;
 }
 
 .container_multipleChoice {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
 .container_multipleChoice {
   display: flex;
-
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .container_multipleChoice p {
