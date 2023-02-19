@@ -1,0 +1,10 @@
+.container_table {
+  width: 90%;
+  margin: auto;
+}
+
+.container_table h2 {
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+}
