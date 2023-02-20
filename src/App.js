@@ -14,7 +14,6 @@ import Login from "./pages/login";
 import ContinuousImprovement from "./pages/stage3";
 import Evaluation from "./pages/stage3/stageEvaluation";
 import Results from "./pages/results";
-import ProtectedRoutes from "./components/router/ProtectedRoutes";
 import Requirements from "./pages/stage2";
 import { StageOneOptions } from "./pages/stage1/stageOneOptions";
 import TableDataEvaluationUsers from "./components/tableDataEvaluationUsers/tableDataEvaluationUsers";
@@ -88,7 +87,6 @@ function App() {
             </Routes>
           </BrowserRouter>
         </PhaseOneProvider>
-    
       </SessionProvider>
     </div>
   );

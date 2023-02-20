@@ -15,13 +15,6 @@ const LoginAdmin = () => {
   const ctx = useContext(SessionContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const token = sessionStorage.getItem("tokenAdmin");
-  //   if (token) {
-  //     ctx.signIn(token);
-  //   }
-  // }, [ctx]);
-
   useEffect(() => {
     if (ctx.session.token) {
       navigate("/admin/dashboard");

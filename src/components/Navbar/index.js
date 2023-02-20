@@ -1,17 +1,19 @@
 import { Button } from "antd";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import LogoBsale from "../../assets/image/logo-bsale.svg";
 import DarkMode from "../DarkMode/darkMode";
 import { SessionContext } from "../../context/SessionContext";
 import "./navbar.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const ctx = useContext(SessionContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     sessionStorage.clear();
     ctx.logout();
+    navigate("/");
   };
 
   return (

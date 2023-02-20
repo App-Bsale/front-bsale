@@ -14,8 +14,12 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  CheckOutlined,
+  CloseOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
+
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);
