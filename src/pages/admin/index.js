@@ -17,7 +17,7 @@ const AdminDashboard = () => {
   const [isModalQuestion, setIsModalOpenQuestion] = useState(false);
   const [valueSelectType, setValueSelectType] = useState("");
   const { phaseOneGlobal, setPhaseOneGlobal } = useContext(PhaseContext);
-  // console.log(phaseOneGlobal);
+  console.log(phaseOneGlobal);
 
   useEffect(() => {
     getApi("api/phase1").then((res) => {

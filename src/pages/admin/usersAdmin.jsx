@@ -14,16 +14,9 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-<<<<<<< HEAD
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-=======
-import {
-  CheckOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
-import { Link } from "react-router-dom";
 
->>>>>>> bd0865f05cf16401f6974bcbc1411e1bcb2ea18c
+import { Link } from "react-router-dom";
 
 const UsersAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -152,19 +145,16 @@ const UsersAdmin = () => {
               marginTop: 16,
             }}
           >
-            <h1 style = {{color: "#e54e24", marginLeft:"16px"}}>All users</h1>
-            <div style={{
-              display: "flex",
-              gap: "8px",
-              marginRight: "8px",  
-            }}>
-              <Button
-                type="primary"
-                htmlType="submit"
-              >
-                <Link to="/admin/tableDataEvaluationUsers">
-                  Resultados
-                </Link>
+            <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>All users</h1>
+            <div
+              style={{
+                display: "flex",
+                gap: "8px",
+                marginRight: "8px",
+              }}
+            >
+              <Button type="primary" htmlType="submit">
+                <Link to="/admin/tableDataEvaluationUsers">Resultados</Link>
               </Button>
               <Button
                 onClick={(e) => setIsEditingUser(true)}
