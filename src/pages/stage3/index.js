@@ -2,8 +2,10 @@ import { Button } from "antd";
 import Navbar from "../../components/Navbar";
 import "../../styles/stage_3.css";
 import Example3 from "../../assets/image/example1.png";
+import { useNavigate } from "react-router-dom";
 
 const ContinuousImprovement = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -37,7 +39,11 @@ const ContinuousImprovement = () => {
           accusamus maxime. Cum officia at voluptates, vero tempora ipsam.
         </p>
 
-        <Button className="button_primary" type="primary">
+        <Button
+          className="button_primary"
+          type="primary"
+          onClick={() => navigate("/stage3/evaluation")}
+        >
           Iniciar
         </Button>
       </div>

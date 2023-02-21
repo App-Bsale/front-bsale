@@ -9,25 +9,20 @@ export const UsersFetcher = (function () {
         { "Content-Type": "application/json", Accept: "application/json" },
         data
       ),
-    all: () =>
-      apiFetch(
-        "/auth",
-        "GET",
-        { "Content-Type": "application/json" }
-      ),
+    all: () => apiFetch("/auth", "GET", { "Content-Type": "application/json" }),
+    getUserById: (email) =>
+      apiFetch(`/auth/searchUser/${email}`, "GET", {
+        "Content-Type": "application/json",
+      }),
     delete: (id) =>
-      apiFetch(
-        `/auth/${id}`,
-        "DELETE",
-        { "Content-Type": "application/json" }
-      ),
+      apiFetch(`/auth/${id}`, "DELETE", { "Content-Type": "application/json" }),
     post: (body) =>
-        apiFetch(
-          "/auth/signup",
-          "POST",
-          { "Content-Type": "application/json", Accept: "application/json" },
-          body
-        ),
+      apiFetch(
+        "/auth/signup",
+        "POST",
+        { "Content-Type": "application/json", Accept: "application/json" },
+        body
+      ),
     update: (data) =>
       apiFetch(
         `/auth/update/${data.uid}`,
@@ -37,9 +32,11 @@ export const UsersFetcher = (function () {
           name: data.name,
           email: data.email,
           password: data.password,
-          status: data.status
+          status: data.status,
+          stars: data.stars,
+          ownerComment1: data.ownerComment1,
+          ownerComment2: data.ownerComment2,
         }
-
-      )
+      ),
   };
 })();

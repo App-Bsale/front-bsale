@@ -2,10 +2,13 @@
   margin: auto;
   max-width: 868px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .test {
-  height: 893px;
+  /* height: 893px; */
+  margin-bottom: 99px;
 }
 
 .test-text {

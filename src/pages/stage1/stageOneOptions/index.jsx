@@ -1,12 +1,8 @@
 import { Button } from "antd";
 import "../../../styles/multipleChoice.css";
-import Layout from "../../../components/Layout/Layout";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PacmanLoader } from "react-spinners";
 import { postApi } from "../../../services/fetchApi";
-import useSessionReducer from "../../../hooks/useSessionReducer";
-// import Example1 from "../assets/image/example1.png";
 
 const MultipleChoice = ({
   description,
@@ -17,11 +13,18 @@ const MultipleChoice = ({
   setIndexQuestion,
   idQuestion,
 }) => {
-  const navigate = useNavigate();
   const [valueInput, setValueInput] = useState("");
   const [showLoading, setShowLoading] = useState(false);
   const [userData, setUserData] = useState(null);
-  const data = useSessionReducer();
+  const [isUltimate, setIsUltimate] = useState(false);
+
+  useEffect(() => {
+    console.log({ index, totalQuestion });
+    if (Number(index) + 1 === Number(totalQuestion)) {
+      console.log("es la ultima :d");
+      setIsUltimate(true);
+    }
+  }, []);
   useEffect(() => {
     const { user } = JSON.parse(localStorage.getItem("user"));
     console.log(user);

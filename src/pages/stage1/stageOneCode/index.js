@@ -5,6 +5,7 @@ import "./style.css";
 import { CodeEditor } from "../../../components/CodeEditor/codeEditor";
 import Editor from "@monaco-editor/react";
 import { getApi } from "../../../services";
+import { useNavigate } from "react-router-dom";
 
 const StageOneCode = ({
   description,
@@ -22,6 +23,16 @@ const StageOneCode = ({
   const [activeTest, setActiveTest] = useState(false);
   const [user, setUser] = useState(null);
   const [isDeseabled, setIsDeseabled] = useState(false);
+  const [isUltimate, setIsUltimate] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log({ index, totalQuestion });
+    if (Number(index) + 1 === Number(totalQuestion)) {
+      console.log("es la ultima :d");
+      setIsUltimate(true);
+    }
+  }, []);
 
   useEffect(() => {
     const objectUser = JSON.parse(localStorage.getItem("user"));
@@ -187,6 +198,17 @@ const StageOneCode = ({
           >
             Enviar
           </Button>
+          {isUltimate && isDeseabled ? (
+            <Button
+              className="button-send"
+              type="primary"
+              onClick={() => navigate("/stage1/StageOneSolutions")}
+            >
+              Ver solucionario
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>

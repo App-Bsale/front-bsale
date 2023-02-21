@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../../styles/stage_3.css";
 import { FaStar } from "react-icons/fa";
+import { apiFetch } from "../../services/api_fetcher";
+import { UsersFetcher } from "../../services/users_fetcher";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const FormularioEvaluation = () => {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
+
+  const notify = (message) => toast.success(message);
+
+  useEffect(() => {
+    const {
+      user: { uid },
+    } = JSON.parse(localStorage.getItem("user"));
+    setUserId(uid);
+  }, []);
 
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -38,11 +53,21 @@ const FormularioEvaluation = () => {
       label_2: label_2,
       stars: currentValue,
     };
-    console.log(newObjet);
+    UsersFetcher.update({
+      uid: userId,
+      stars: currentValue,
+      ownerComment1: label_1,
+      ownerComment2: label_2,
+    }).then((res) => {
+      if (res.message === "El usuario se actualizó con éxito") {
+        notify(res.message);
+      }
+    });
   };
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <Toaster />
       <div className="stars">
         {stars.map((_, index) => {
           return (
@@ -95,7 +120,12 @@ const FormularioEvaluation = () => {
         )}
       </div>
       <div className="button_evaluation">
-        <input type="submit" value="Siguiente" className="next" />
+        <input
+          type="submit"
+          value="Siguiente"
+          className="next"
+          onClick={() => navigate("/results")}
+        />
       </div>
     </form>
   );
