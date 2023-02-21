@@ -13,22 +13,6 @@ const TableDataEvaluationUsers = () => {
 
   const columns = [
     {
-      name: "ID",
-      selector: (row) => row.uid,
-      sortable: true,
-      center: true,
-      style: {
-        backgroundColor: "#F9FAF3",
-        color: "black",
-      },
-    },
-    {
-      name: "Name",
-      selector: (row) => row.name,
-      sortable: true,
-      center: true,
-    },
-    {
       name: "Email",
       selector: (row) => row.email,
       sortable: true,
@@ -40,7 +24,23 @@ const TableDataEvaluationUsers = () => {
     },
     {
       name: "Stars",
-      selector: (row) => row.star,
+      selector: (row) => row.stars,
+      sortable: true,
+      center: true,
+    },
+    {
+      name: "Question 1",
+      selector: (row) => row.ownerComment1,
+      sortable: true,
+      center: true,
+      style: {
+        backgroundColor: "#F9FAF3",
+        color: "black",
+      },
+    },
+    {
+      name: "Question 2",
+      selector: (row) => row.ownerComment2,
       sortable: true,
       center: true,
     },
@@ -87,7 +87,7 @@ const TableDataEvaluationUsers = () => {
   return (
     <LayoutAdmin>
       <div className="container_table">
-        <h2> Final Results </h2>
+        <h2> Results Stage 3 </h2>
         <DataTable
           columns={columns}
           data={allUsers}

@@ -156,16 +156,19 @@ const UsersAdmin = () => {
               marginTop: 16,
             }}
           >
-            <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>All users</h1>
-            <div
-              style={{
-                display: "flex",
-                gap: "8px",
-                marginRight: "8px",
-              }}
-            >
-              <Button type="primary" htmlType="submit">
-                <Link to="/admin/tableDataEvaluationUsers">Resultados</Link>
+            <h1 style = {{color: "#e54e24", marginLeft:"16px"}}>All users</h1>
+            <div style={{
+              display: "flex",
+              gap: "8px",
+              marginRight: "8px",
+            }}>
+              <Button
+                type="primary"
+                htmlType="submit"
+              >
+                <Link to="/admin/tableDataEvaluationUsers">
+                  Results Stage 3
+                </Link>
               </Button>
               <Button
                 onClick={(e) => setIsEditingUser(true)}
