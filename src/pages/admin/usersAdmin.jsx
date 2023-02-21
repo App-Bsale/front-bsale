@@ -155,86 +155,102 @@ const UsersAdmin = () => {
               <Button type="primary" htmlType="submit">
                 <Link to="/admin/tableDataEvaluationUsers">Resultados</Link>
               </Button>
-              <Button
-                onClick={(e) => setIsEditingUser(true)}
-                type="primary"
-                htmlType="submit"
+              <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>
+                All users
+              </h1>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "8px",
+                  marginRight: "8px",
+                }}
               >
-                Crear Usuario
-              </Button>
+                <Button type="primary" htmlType="submit">
+                  <Link to="/admin/tableDataEvaluationUsers">
+                    Results Stage 3
+                  </Link>
+                </Button>
+                <Button
+                  onClick={(e) => setIsEditingUser(true)}
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Crear Usuario
+                </Button>
+              </div>
             </div>
-          </div>
-          <Table dataSource={allUsers} columns={columns} />
-          <Modal
-            title="Crear Usuario"
-            visible={isEditingUser}
-            onOk={handleSaveUser}
-            onCancel={handleCancel}
-          >
-            <Input
-              prefix={"Nombre:"}
-              onChange={(e) => {
-                setCreatingUser((pre) => {
-                  console.log({ ...pre, name: e.target.value });
-                  return { ...pre, name: e.target.value };
-                });
-              }}
-            />
-            <Input
-              prefix={"Correo:"}
-              label="Email"
-              onChange={(e) => {
-                setCreatingUser((pre) => {
-                  return { ...pre, email: e.target.value };
-                });
-              }}
-            />
-            <Input
-              prefix={"Password:"}
-              onChange={(e) => {
-                setCreatingUser((pre) => {
-                  return { ...pre, password: e.target.value };
-                });
-              }}
-            />
-          </Modal>
+            <Table dataSource={allUsers} columns={columns} />
+            <Modal
+              title="Crear Usuario"
+              visible={isEditingUser}
+              onOk={handleSaveUser}
+              onCancel={handleCancel}
+            >
+              <Input
+                prefix={"Nombre:"}
+                onChange={(e) => {
+                  setCreatingUser((pre) => {
+                    console.log({ ...pre, name: e.target.value });
+                    return { ...pre, name: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                prefix={"Correo:"}
+                label="Email"
+                onChange={(e) => {
+                  setCreatingUser((pre) => {
+                    return { ...pre, email: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                prefix={"Password:"}
+                onChange={(e) => {
+                  setCreatingUser((pre) => {
+                    return { ...pre, password: e.target.value };
+                  });
+                }}
+              />
+            </Modal>
 
-          <Modal
-            title="Actualizar Usuario"
-            visible={isEditing}
-            onOk={handleSave}
-            onCancel={handleCancel}
-          >
-            <Input
-              prefix={"Nombre:"}
-              value={editingUser.name}
-              onChange={(e) => {
-                setEditingUser((pre) => {
-                  console.log({ ...pre, name: e.target.value });
-                  return { ...pre, name: e.target.value };
-                });
-              }}
-            />
-            <Input
-              prefix={"Correo:"}
-              value={editingUser.email}
-              label="Email"
-              onChange={(e) => {
-                setEditingUser((pre) => {
-                  return { ...pre, email: e.target.value };
-                });
-              }}
-            />
-            <Input
-              prefix={"Password:"}
-              value={editingUser.password}
-              onChange={(e) => {
-                setEditingUser((pre) => {
-                  return { ...pre, password: e.target.value };
-                });
-              }}
-            />
-          </Modal>
+            <Modal
+              title="Actualizar Usuario"
+              visible={isEditing}
+              onOk={handleSave}
+              onCancel={handleCancel}
+            >
+              <Input
+                prefix={"Nombre:"}
+                value={editingUser.name}
+                onChange={(e) => {
+                  setEditingUser((pre) => {
+                    console.log({ ...pre, name: e.target.value });
+                    return { ...pre, name: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                prefix={"Correo:"}
+                value={editingUser.email}
+                label="Email"
+                onChange={(e) => {
+                  setEditingUser((pre) => {
+                    return { ...pre, email: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                prefix={"Password:"}
+                value={editingUser.password}
+                onChange={(e) => {
+                  setEditingUser((pre) => {
+                    return { ...pre, password: e.target.value };
+                  });
+                }}
+              />
+            </Modal>
+          </div>
         </Layout>
       </LayoutAdmin>
     </>
