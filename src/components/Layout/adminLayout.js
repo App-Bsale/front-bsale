@@ -31,7 +31,7 @@ const LayoutAdmin = ({ children }) => {
             </Row>
             <Row style={{ marginBlock: "1rem" }}>
               <Button type="text" className="button" block>
-                <NavLink to="/admin/users">Usuarios</NavLink>
+                <NavLink to="/admin/users">Postulantes</NavLink>
               </Button>
             </Row>
           </Col>

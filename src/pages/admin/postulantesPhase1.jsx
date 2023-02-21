@@ -3,13 +3,13 @@ import LayoutAdmin from "../../components/Layout/adminLayout";
 import { Button, Modal, Form, Input, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import { getApi, putApi } from "../../services/fetchApi";
-import { PhaseContext } from "../../hooks//PhaseContext";
+import { PhaseContext } from "../../hooks/PhaseContext";
 import { Toaster } from "react-hot-toast";
 
 import "../../styles/postulatesPhase1.css";
 import { notifyError, notifySuccess } from "../../components/Alerts";
 
-const PostulatesPhase1 = () => {
+const PostulantesPhase1 = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [usersData, setUsersData] = useState([]);
   const [userSearch, setUserSearch] = useState(null);
