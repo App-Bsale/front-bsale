@@ -139,4 +139,4 @@ const PostulantesPhase1 = () => {
   );
 };
 
-export default PostulatesPhase1;
+export default PostulantesPhase1;
