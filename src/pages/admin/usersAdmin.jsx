@@ -5,6 +5,7 @@ import {
   Input,
   Layout,
   Modal,
+  Progress,
   Row,
   Select,
   Space,
@@ -14,11 +15,9 @@ import {
 import LayoutAdmin from "../../components/Layout/adminLayout";
 import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import {
-  CheckOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { red, green } from '@ant-design/colors';
 
 
 const UsersAdmin = () => {
@@ -31,6 +30,7 @@ const UsersAdmin = () => {
 
   const getAllUsers = () => {
     UsersFetcher.all().then((user) => setAllUsers(user));
+
   };
 
   useEffect(() => {
@@ -97,10 +97,18 @@ const UsersAdmin = () => {
       dataIndex: "email",
       key: "email",
     },
+    // {
+    //   title: "Id",
+    //   dataIndex: "uid",
+    //   key: "uid",
+    // },
     {
-      title: "Id",
-      dataIndex: "uid",
-      key: "uid",
+      title: "Score",
+      dataIndex: "score",
+      key: "score",
+      render: (text, record) => (
+        <Progress percent={record.score * 5} steps={10} size="small" strokeColor={green[6]} />
+      )
     },
     {
       title: "Status",
