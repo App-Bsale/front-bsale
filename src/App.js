@@ -37,7 +37,35 @@ function App() {
         <PhaseOneProvider>
           <BrowserRouter>
             <Routes>
-              {/* Rutas del admin */}
+              {/* Rutas del usuario normal */}
+              <Route path="/" element={<Login />} />
+              <Route path="/results" element={<Results />} />
+              <Route element={<UserProtectedRoutes user={"user"} />}>
+                <Route
+                  path="/AssignedChallenge"
+                  element={<AssignedChallenge />}
+                />
+                <Route path="/stage1" element={<StageOne />} />
+                <Route path="/stagePageOne" element={<StagePage />} />
+                <Route
+                  path="/stage1/StageOneOptions"
+                  element={<MultipleChoice />}
+                />
+                <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
+                <Route
+                  path="/stage1/StageOneSolutions"
+                  element={<StageOneSolutions />}
+                />
+                <Route path="/stage2/requirements" element={<Requirements />} />
+                <Route
+                  path="/stage3/codeReview"
+                  element={<ContinuousImprovement />}
+                />
+                <Route path="/stage3/evaluation" element={<Evaluation />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/" />} />
+
+              {/* rutas del admin */}
               <Route path="/admin" element={<LoginAdmin />} />
               <Route element={<AdminProtectedRoutes user={"admin"} />}>
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -64,7 +92,7 @@ function App() {
                   element={<AssignedChallenge />}
                 />
                 <Route path="/stage1" element={<StageOne />} />
-                <Route path="/stagePageOne" element={<StagePage />} />
+                {/* <Route path="/stagePageOne" element={<StagePage />} /> */}
                 <Route
                   path="/stage1/StageOneOptions"
                   element={<MultipleChoice />}
@@ -82,7 +110,6 @@ function App() {
                 <Route path="/stage3/evaluation" element={<Evaluation />} />
                 <Route path="/results" element={<Results />} />
               </Route>
-
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </BrowserRouter>

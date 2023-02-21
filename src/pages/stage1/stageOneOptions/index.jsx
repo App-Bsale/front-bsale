@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { PacmanLoader } from "react-spinners";
 import { postApi } from "../../../services/fetchApi";
 
-
 const MultipleChoice = ({
   description,
   alternatives,
@@ -17,7 +16,15 @@ const MultipleChoice = ({
   const [valueInput, setValueInput] = useState("");
   const [showLoading, setShowLoading] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [isUltimate, setIsUltimate] = useState(false);
 
+  useEffect(() => {
+    console.log({ index, totalQuestion });
+    if (Number(index) + 1 === Number(totalQuestion)) {
+      console.log("es la ultima :d");
+      setIsUltimate(true);
+    }
+  }, []);
   useEffect(() => {
     const { user } = JSON.parse(localStorage.getItem("user"));
     console.log(user);

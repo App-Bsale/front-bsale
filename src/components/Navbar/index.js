@@ -21,7 +21,12 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="wrapper">
           <div className="container-navbar">
-            <img className="logo" src={LogoBsale} alt="logo-navbar" />
+            <img
+              className="logo"
+              src={LogoBsale}
+              alt="logo-navbar"
+              onClick={() => navigate("/assignedChallenge")}
+            />
             <div className="text">Desafíate!</div>
             <DarkMode />
           </div>
