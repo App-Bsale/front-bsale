@@ -22,12 +22,12 @@ export const UsersFetcher = (function () {
         { "Content-Type": "application/json" }
       ),
     post: (body) =>
-        apiFetch(
-          "/auth/signup",
-          "POST",
-          { "Content-Type": "application/json", Accept: "application/json" },
-          body
-        ),
+      apiFetch(
+        "/auth/signup",
+        "POST",
+        { "Content-Type": "application/json", Accept: "application/json" },
+        body
+      ),
     update: (data) =>
       apiFetch(
         `/auth/update/${data.uid}`,
@@ -39,7 +39,6 @@ export const UsersFetcher = (function () {
           password: data.password,
           status: data.status
         }
-
       )
   };
 })();
