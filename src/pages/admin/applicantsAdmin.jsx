@@ -4,6 +4,9 @@ import {
   Input,
   Layout,
   Modal,
+  Progress,
+  Row,
+  Select,
   Space,
   Switch,
   Table,
@@ -13,8 +16,9 @@ import { UsersFetcher } from "../../services/users_fetcher";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { red, green } from "@ant-design/colors";
 
-const UsersAdmin = () => {
+const ApplicantsAdmin = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editingUser, setEditingUser] = useState({});
@@ -89,10 +93,23 @@ const UsersAdmin = () => {
       dataIndex: "email",
       key: "email",
     },
+    // {
+    //   title: "Id",
+    //   dataIndex: "uid",
+    //   key: "uid",
+    // },
     {
-      title: "Id",
-      dataIndex: "uid",
-      key: "uid",
+      title: "Score",
+      dataIndex: "score",
+      key: "score",
+      render: (text, record) => (
+        <Progress
+          percent={record.score * 5}
+          steps={10}
+          size="small"
+          strokeColor={green[6]}
+        />
+      ),
     },
     {
       title: "Status",
@@ -144,6 +161,17 @@ const UsersAdmin = () => {
             <div
             style={{ display: "flex", justifyContent: "space-between", alignItems: "center"}}
             >
+<<<<<<< HEAD:src/pages/admin/applicantsAdmin.jsx
+              <Button type="primary" htmlType="submit">
+                <Link to="/admin/tableDataEvaluationUsers">
+                  Results Stage 3
+                </Link>
+              </Button>
+              <Button
+                onClick={(e) => setIsEditingUser(true)}
+                type="primary"
+                htmlType="submit"
+=======
               <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>All users</h1>
               <div
                 style={{
@@ -151,97 +179,87 @@ const UsersAdmin = () => {
                   gap: "8px",
                   marginRight: "8px",
                 }}
+>>>>>>> 90fa754ffb039e391c13156bec674e1b7db7b9b4:src/pages/admin/usersAdmin.jsx
               >
-                <Button type="primary" htmlType="submit">
-                  <Link to="/admin/tableDataEvaluationUsers">
-                    Results Stage 3
-                  </Link>
-                </Button>
-                <Button
-                  onClick={(e) => setIsEditingUser(true)}
-                  type="primary"
-                  htmlType="submit"
-                >
-                  Crear Usuario
-                </Button>
-              </div>
+                Crear Usuario
+              </Button>
             </div>
-            <Table dataSource={allUsers} columns={columns} />
-            <Modal
-              title="Crear Usuario"
-              visible={isEditingUser}
-              onOk={handleSaveUser}
-              onCancel={handleCancel}
-            >
-              <Input
-                prefix={"Nombre:"}
-                onChange={(e) => {
-                  setCreatingUser((pre) => {
-                    console.log({ ...pre, name: e.target.value });
-                    return { ...pre, name: e.target.value };
-                  });
-                }}
-              />
-              <Input
-                prefix={"Correo:"}
-                label="Email"
-                onChange={(e) => {
-                  setCreatingUser((pre) => {
-                    return { ...pre, email: e.target.value };
-                  });
-                }}
-              />
-              <Input
-                prefix={"Password:"}
-                onChange={(e) => {
-                  setCreatingUser((pre) => {
-                    return { ...pre, password: e.target.value };
-                  });
-                }}
-              />
-            </Modal>
-
-            <Modal
-              title="Actualizar Usuario"
-              visible={isEditing}
-              onOk={handleSave}
-              onCancel={handleCancel}
-            >
-              <Input
-                prefix={"Nombre:"}
-                value={editingUser.name}
-                onChange={(e) => {
-                  setEditingUser((pre) => {
-                    console.log({ ...pre, name: e.target.value });
-                    return { ...pre, name: e.target.value };
-                  });
-                }}
-              />
-              <Input
-                prefix={"Correo:"}
-                value={editingUser.email}
-                label="Email"
-                onChange={(e) => {
-                  setEditingUser((pre) => {
-                    return { ...pre, email: e.target.value };
-                  });
-                }}
-              />
-              <Input
-                prefix={"Password:"}
-                value={editingUser.password}
-                onChange={(e) => {
-                  setEditingUser((pre) => {
-                    return { ...pre, password: e.target.value };
-                  });
-                }}
-              />
-            </Modal>
           </div>
+          <Table dataSource={allUsers} columns={columns} />
+          <Modal
+            title="Crear Usuario"
+            visible={isEditingUser}
+            onOk={handleSaveUser}
+            onCancel={handleCancel}
+          >
+            <Input
+              prefix={"Nombre:"}
+              onChange={(e) => {
+                setCreatingUser((pre) => {
+                  console.log({ ...pre, name: e.target.value });
+                  return { ...pre, name: e.target.value };
+                });
+              }}
+            />
+            <Input
+              prefix={"Correo:"}
+              label="Email"
+              onChange={(e) => {
+                setCreatingUser((pre) => {
+                  return { ...pre, email: e.target.value };
+                });
+              }}
+            />
+            <Input
+              prefix={"Password:"}
+              onChange={(e) => {
+                setCreatingUser((pre) => {
+                  return { ...pre, password: e.target.value };
+                });
+              }}
+            />
+          </Modal>
+
+          <Modal
+            title="Actualizar Usuario"
+            visible={isEditing}
+            onOk={handleSave}
+            onCancel={handleCancel}
+          >
+            <Input
+              prefix={"Nombre:"}
+              value={editingUser.name}
+              onChange={(e) => {
+                setEditingUser((pre) => {
+                  console.log({ ...pre, name: e.target.value });
+                  return { ...pre, name: e.target.value };
+                });
+              }}
+            />
+            <Input
+              prefix={"Correo:"}
+              value={editingUser.email}
+              label="Email"
+              onChange={(e) => {
+                setEditingUser((pre) => {
+                  return { ...pre, email: e.target.value };
+                });
+              }}
+            />
+            <Input
+              prefix={"Password:"}
+              value={editingUser.password}
+              onChange={(e) => {
+                setEditingUser((pre) => {
+                  return { ...pre, password: e.target.value };
+                });
+              }}
+            />
+          </Modal>
         </Layout>
       </LayoutAdmin>
     </>
   );
 };
 
-export default UsersAdmin;
+export default ApplicantsAdmin;
