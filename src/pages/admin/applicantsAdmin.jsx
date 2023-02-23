@@ -93,11 +93,6 @@ const ApplicantsAdmin = () => {
       dataIndex: "email",
       key: "email",
     },
-    // {
-    //   title: "Id",
-    //   dataIndex: "uid",
-    //   key: "uid",
-    // },
     {
       title: "Score",
       dataIndex: "score",
