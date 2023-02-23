@@ -2,14 +2,20 @@ import Layout from "../../components/Layout/Layout";
 import { Collapse, Button } from "antd";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 // import { useContext } from "react";
 // import { SessionContext } from "../../context/SessionContext";
 
 const AssignedChallenge = () => {
   const navigate = useNavigate();
   const { Panel } = Collapse;
+  const [userState, setUserState] = useState(null);
 
-
+  useEffect(() => {
+    const { user } = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    setUserState(user);
+  }, []);
 
   const text = `Tincidunt elit vitae urna viverra fermentum. Egestas nam mauris
         id ipsum orci congue. Non tincidunt viverra lacus et vitae vel netus.
@@ -24,33 +30,37 @@ const AssignedChallenge = () => {
 
   return (
     <Layout>
-      <div className="container-challenge">
-        <h2>Retos asignados</h2>
-        <Collapse
-          collapsible="icon"
-          expandIconPosition="end"
-          defaultActiveKey={["1"]}
-          onChange={console.log("hola")}
-        >
-          <Panel
-            header={
-              <div className="header-challenge">
-                <h4>Desarrollador Web Junior</h4>
-                <Button
-                  type="primary"
-                  className="button-challenge"
-                  onClick={() => navigate("/stage1")}
-                >
-                  Iniciar
-                </Button>
-              </div>
-            }
-            key="1"
+      {userState?.phase1Active ? (
+        <div className="container-challenge">
+          <h2>Retos asignados</h2>
+          <Collapse
+            collapsible="icon"
+            expandIconPosition="end"
+            defaultActiveKey={["1"]}
+            onChange={console.log("hola")}
           >
-            <p>{text}</p>
-          </Panel>
-        </Collapse>
-      </div>
+            <Panel
+              header={
+                <div className="header-challenge">
+                  <h4>Desarrollador Web Junior</h4>
+                  <Button
+                    type="primary"
+                    className="button-challenge"
+                    onClick={() => navigate("/stage1")}
+                  >
+                    Iniciar
+                  </Button>
+                </div>
+              }
+              key="1"
+            >
+              <p>{text}</p>
+            </Panel>
+          </Collapse>
+        </div>
+      ) : (
+        <h1>No tienes asignado ningún reto</h1>
+      )}
     </Layout>
   );
 };

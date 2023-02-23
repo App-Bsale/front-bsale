@@ -42,7 +42,13 @@ const AllQuestions = () => {
               // </div>
               <Card
                 style={{ width: 300 }}
-                cover={<img alt="example" src={question.image} />}
+                cover={
+                  <img
+                    alt="example"
+                    src={question.image}
+                    style={{ height: "200px", objectFit: "cover" }}
+                  />
+                }
                 actions={[
                   <EditOutlined key="edit" />,
                   <DeleteOutlined key="delete" />,

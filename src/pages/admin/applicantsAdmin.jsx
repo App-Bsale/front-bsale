@@ -97,14 +97,7 @@ const ApplicantsAdmin = () => {
       title: "Score",
       dataIndex: "score",
       key: "score",
-      render: (text, record) => (
-        <Progress
-          percent={record.score * 5}
-          steps={10}
-          size="small"
-          strokeColor={green[6]}
-        />
-      ),
+      render: (text, record) => <p>{record.score}</p>,
     },
     {
       title: "Status",
