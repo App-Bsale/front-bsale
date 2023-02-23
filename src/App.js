@@ -39,7 +39,6 @@ function App() {
             <Routes>
               {/* Rutas del usuario normal */}
               <Route path="/" element={<Login />} />
-              <Route path="/results" element={<Results />} />
               <Route element={<UserProtectedRoutes user={"user"} />}>
                 <Route
                   path="/AssignedChallenge"
@@ -62,6 +61,7 @@ function App() {
                   element={<ContinuousImprovement />}
                 />
                 <Route path="/stage3/evaluation" element={<Evaluation />} />
+                <Route path="/results" element={<Results />} />
               </Route>
               <Route path="*" element={<Navigate to="/" />} />
 
