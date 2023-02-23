@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState} from "react";
 import {
   Button,
-  Col,
   Input,
   Layout,
   Modal,
@@ -25,7 +24,6 @@ const ApplicantsAdmin = () => {
   const [editingUser, setEditingUser] = useState({});
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [creatingUser, setCreatingUser] = useState({});
-  const [userState, setUserState] = useState(null);
 
   const getAllUsers = () => {
     UsersFetcher.all().then((user) => setAllUsers(user));
@@ -155,18 +153,15 @@ const ApplicantsAdmin = () => {
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               justifyContent: "space-between",
               marginTop: 16,
             }}
           >
-            <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>All users</h1>
             <div
-              style={{
-                display: "flex",
-                gap: "8px",
-                marginRight: "8px",
-              }}
+            style={{ display: "flex", justifyContent: "space-between", alignItems: "center"}}
             >
+<<<<<<< HEAD:src/pages/admin/applicantsAdmin.jsx
               <Button type="primary" htmlType="submit">
                 <Link to="/admin/tableDataEvaluationUsers">
                   Results Stage 3
@@ -176,6 +171,15 @@ const ApplicantsAdmin = () => {
                 onClick={(e) => setIsEditingUser(true)}
                 type="primary"
                 htmlType="submit"
+=======
+              <h1 style={{ color: "#e54e24", marginLeft: "16px" }}>All users</h1>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "8px",
+                  marginRight: "8px",
+                }}
+>>>>>>> 90fa754ffb039e391c13156bec674e1b7db7b9b4:src/pages/admin/usersAdmin.jsx
               >
                 Crear Usuario
               </Button>
