@@ -111,7 +111,7 @@ const Requirements = () => {
             </Button>
           </div>
           <Button
-            className="button-next-stage2"
+            className="button_primary button-next-stage2"
             type="primary"
             onClick={() => navigate("/stage3/codeReview")}
           >

@@ -1,8 +1,6 @@
-import Layout from "../../../components/Layout/Layout";
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 import "./style.css";
-import { CodeEditor } from "../../../components/CodeEditor/codeEditor";
 import Editor from "@monaco-editor/react";
 import { getApi } from "../../../services";
 import { useNavigate } from "react-router-dom";
@@ -89,6 +87,8 @@ const StageOneCode = ({
           setIsDeseabled(true);
         }
       });
+    } else {
+      navigate("/stage1/StageOneSolutions");
     }
   };
 

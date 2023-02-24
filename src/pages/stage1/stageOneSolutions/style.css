@@ -1,12 +1,12 @@
 .container-stageOneSolutions {
-    height: 1295px;
     margin: auto;
     max-width: 868px;
     width: 100%;
 }
 
 .solution {
-    height: 893px;
+    display: flex;
+    flex-direction: column;
 }
 
 .solution-text {
@@ -17,5 +17,6 @@
 .button-next {
     display: flex;
     margin: auto;
+    margin-bottom: 99px;
     background: #FF5B00;
 }

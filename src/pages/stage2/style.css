@@ -1,12 +1,12 @@
 .container-stage2 {
-    height: 1295px;
     margin: auto;
     max-width: 868px;
     width: 100%;
 }
 
 .requirement {
-    height: 893px;
+    display: flex;
+    flex-direction: column;
 }
 
 .requirement-text {
@@ -122,3 +122,8 @@
     justify-content: center;
     background: #FF5B00;
 }
+
+.button_primary {
+    background-color: #ff5b00;
+    margin-bottom: 99px;
+  }

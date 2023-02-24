@@ -39,7 +39,6 @@ function App() {
             <Routes>
               {/* Rutas del usuario normal */}
               <Route path="/" element={<Login />} />
-              <Route path="/results" element={<Results />} />
               <Route element={<UserProtectedRoutes user={"user"} />}>
                 <Route
                   path="/AssignedChallenge"
@@ -62,6 +61,7 @@ function App() {
                   element={<ContinuousImprovement />}
                 />
                 <Route path="/stage3/evaluation" element={<Evaluation />} />
+                <Route path="/results" element={<Results />} />
               </Route>
               <Route path="*" element={<Navigate to="/" />} />
 
@@ -84,33 +84,6 @@ function App() {
                   element={<TableDataEvaluationUsers />}
                 />
               </Route>
-              {/* Rutas del usuario normal */}
-              <Route path="/" element={<Login />} />
-              <Route element={<UserProtectedRoutes user={"user"} />}>
-                <Route
-                  path="/AssignedChallenge"
-                  element={<AssignedChallenge />}
-                />
-                <Route path="/stage1" element={<StageOne />} />
-                {/* <Route path="/stagePageOne" element={<StagePage />} /> */}
-                <Route
-                  path="/stage1/StageOneOptions"
-                  element={<MultipleChoice />}
-                />
-                <Route path="/stage1/StageOneCode" element={<StageOneCode />} />
-                <Route
-                  path="/stage1/StageOneSolutions"
-                  element={<StageOneSolutions />}
-                />
-                <Route path="/stage2/requirements" element={<Requirements />} />
-                <Route
-                  path="/stage3/codeReview"
-                  element={<ContinuousImprovement />}
-                />
-                <Route path="/stage3/evaluation" element={<Evaluation />} />
-                <Route path="/results" element={<Results />} />
-              </Route>
-              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </BrowserRouter>
         </PhaseOneProvider>

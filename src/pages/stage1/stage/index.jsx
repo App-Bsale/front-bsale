@@ -1,4 +1,3 @@
-// import { Layout } from "antd";
 import { useEffect, useState } from "react";
 import Layout from "../../../components/Layout/Layout";
 import { getApi } from "../../../services";
